@@ -287,28 +287,28 @@ static Float:grad3v[16][3] = {
 * Float:SLnoise = (SimplexNoise1234::noise(x,y,z) + 1.0) * 0.5;
 */
 
-Float:grad1D(hash, Float:x) {
+stock Float:grad1D(hash, Float:x) {
     new h = hash & 15;
     new Float:grad = 1.0 + (h & 7);   // Gradient value 1.0, 2.0, ..., 8.0
     if(h & 8) grad = - grad;         // Set a random sign for the gradient
     return (grad * x);           // Multiply the gradient with the distance
 }
 
-Float:grad2D(hash, Float:x, Float:y) {
+stock Float:grad2D(hash, Float:x, Float:y) {
     new h = hash & 7;      // Convert low 3 bits of hash code
     new Float:u = h < 4 ? x : y;  // into 8 simple gradient directions,
     new Float:v = h < 4 ? y : x;  // and compute the dot product with (x,y).
     return ((h & 1) ? - u : u) + ((h & 2) ? - 2.0 * v : 2.0 * v);
 }
 
-Float:grad3D(hash, Float:x, Float:y , Float:z) {
+stock Float:grad3D(hash, Float:x, Float:y , Float:z) {
     new h = hash & 15;     // Convert low 4 bits of hash code into 12 simple
     new Float:u = h < 8 ? x : y; // gradient directions, and compute dot product.
     new Float:v = h < 4 ? y : h == 12 || h == 14 ? x : z; // Fix repeats at h = 12 to 15
     return ((h&1)? - u : u) + ((h&2)? - v : v);
 }
 
-Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
+stock Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
     new h = hash & 31;      // Convert low 5 bits of hash code into 32 simple
     new Float:u = h < 24 ? x : y; // gradient directions, and compute dot product.
     new Float:v = h < 16 ? y : z;
@@ -321,26 +321,26 @@ Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
 * and gradients - dot - residualvectors in 2D to 4D.
 */
 
-grad1(hash, &Float:gx) {
+stock grad1(hash, &Float:gx) {
     new h = hash & 15;
     gx = 1.0 + (h & 7);   // Gradient value is one of 1.0, 2.0, ..., 8.0
     if(h & 8) gx = - gx;   // Make half of the gradients negative
 }
 
-grad2(hash, &Float:gx, &Float:gy) {
+stock grad2(hash, &Float:gx, &Float:gy) {
     new h = hash & 7;
     gx = grad2lut[h][0];
     gy = grad2lut[h][1];
 }
 
-grad3(hash, &Float:gx, &Float:gy, &Float:gz) {
+stock grad3(hash, &Float:gx, &Float:gy, &Float:gz) {
     new h = hash & 15;
     gx = grad3lut[h][0];
     gy = grad3lut[h][1];
     gz = grad3lut[h][2];
 }
 
-grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
+stock grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
     new h = hash & 31;
     gx = grad4lut[h][0];
     gy = grad4lut[h][1];
@@ -354,7 +354,7 @@ grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
 * gradients - dot - residualvectors in 2D and 3D.
 */
 
-gradrot2(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy) {
+stock gradrot2(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy) {
     new h = hash & 7;
     new Float:gx0 = grad2lut[h][0];
     new Float:gy0 = grad2lut[h][1];
@@ -362,7 +362,7 @@ gradrot2(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy) {
     gy = sin_t * gx0 + cos_t * gy0;
 }
 
-gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) {
+stock gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) {
     new h = hash & 15;
     new Float:gux = grad3u[h][0];
     new Float:guy = grad3u[h][1];
@@ -375,11 +375,11 @@ gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) {
     gz = cos_t * guz + sin_t * gvz;
 }
 
-Float:graddotp2(Float:gx, Float:gy, Float:x, Float:y) {
+stock Float:graddotp2(Float:gx, Float:gy, Float:x, Float:y) {
     return gx * x + gy * y;
 }
 
-Float:graddotp3(Float:gx, Float:gy, Float:gz, Float:x, Float:y, Float:z) {
+stock Float:graddotp3(Float:gx, Float:gy, Float:gz, Float:x, Float:y, Float:z) {
     return gx * x + gy * y + gz * z;
 }
 
@@ -404,7 +404,7 @@ Float:graddotp3(Float:gx, Float:gy, Float:gz, Float:x, Float:y, Float:z) {
 #define F4 0.309016994 // F4 = (Math.sqrt(5.0)- 1.0)/ 4.0
 #define G4 0.138196601 // G4 = (5.0 -Math.sqrt(5.0))/ 20.0
 
-Float:noise1D(Float:x)
+stock Float:noise1D(Float:x)
 {
     new i0 = FASTFLOOR(x);
     new i1 = i0 + 1;
@@ -429,7 +429,7 @@ Float:noise1D(Float:x)
 }
 
 // 2D simplex noise
-Float:noise2D(Float:x, Float:y)
+stock Float:noise2D(Float:x, Float:y)
 {
     new Float:n0, Float:n1, Float:n2; // Noise contributions from the three corners
 
@@ -493,7 +493,7 @@ Float:noise2D(Float:x, Float:y)
 }
 
 // 3D simplex noise
-Float:noise3D(Float:x, Float:y, Float:z)
+stock Float:noise3D(Float:x, Float:y, Float:z)
 {
     new Float:n0, Float:n1, Float:n2, Float:n3; // Noise contributions from the four corners
 
@@ -598,7 +598,7 @@ static sSimplexLut[64][4] = {
 };
 
 // 4D simplex noise
-Float:noise4D(Float:x, Float:y, Float:z, Float:w)
+stock Float:noise4D(Float:x, Float:y, Float:z, Float:w)
 {
     new Float:n0, Float:n1, Float:n2, Float:n3, Float:n4; // Noise contributions from the five corners
 
@@ -728,24 +728,24 @@ Float:noise4D(Float:x, Float:y, Float:z, Float:w)
     return 27.0 * (n0 + n1 + n2 + n3 + n4); // TODO: The scale factor is preliminary!
 }
 
-Float:ridgedNoise1D(Float:x)
+stock Float:ridgedNoise1D(Float:x)
 {
     return 1.0 - floatabs(noise1D(x));
 }
-Float:ridgedNoise2D(Float:x, Float:y)
+stock Float:ridgedNoise2D(Float:x, Float:y)
 {
     return 1.0 - floatabs(noise2D(x, y));
 }
-Float:ridgedNoise3D(Float:x, Float:y, Float:z)
+stock Float:ridgedNoise3D(Float:x, Float:y, Float:z)
 {
     return 1.0 - floatabs(noise3D(x, y, z));
 }
-Float:ridgedNoise4D(Float:x, Float:y, Float:z, Float:w)
+stock Float:ridgedNoise4D(Float:x, Float:y, Float:z, Float:w)
 {
     return 1.0 - floatabs(noise4D(x, y, z, w));
 }
 
-dnoise1D(Float:x, &Float:rx, &Float:ry)
+stock dnoise1D(Float:x, &Float:rx, &Float:ry)
 {
     new i0 = FASTFLOOR(x);
     new i1 = i0 + 1;
@@ -792,7 +792,7 @@ dnoise1D(Float:x, &Float:rx, &Float:ry)
     #endif
 }
 
-dnoise2D(Float:x, Float:y, &Float:rx, &Float:ry, &Float:rz)
+stock dnoise2D(Float:x, Float:y, &Float:rx, &Float:ry, &Float:rz)
 {
     new Float:n0, Float:n1, Float:n2; // Noise contributions from the three corners
 
@@ -898,7 +898,7 @@ dnoise2D(Float:x, Float:y, &Float:rx, &Float:ry, &Float:rz)
     #endif
 }
 
-dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
 {
     new Float:n0, Float:n1, Float:n2, Float:n3; /* Noise contributions from the four simplex corners */
     new Float:rnoise;          /* Return value */
@@ -1271,7 +1271,7 @@ return { noise, dnoise_dx, dnoise_dy, dnoise_dz, dnoise_dw };
 #define dot(%0,%1) ((%0x * %1x) + (%0y * %1y))
 #define min(%0,%1) (%0<%1?%0:%1)
 
-Float:worleyNoise2D(Float:x, Float:y)
+stock Float:worleyNoise2D(Float:x, Float:y)
 {
     new Float:px = floatfloor(x), Float:py = floatfloor(y);
     new Float:fx = floatfract(x), Float:fy = floatfract(y);
@@ -1292,7 +1292,7 @@ Float:worleyNoise2D(Float:x, Float:y)
 #undef dot
 #define dot(%0,%1) ((%0x * %1x) + (%0y * %1y) + (%0z * %1z))
 
-Float:worleyNoise3D(Float:x, Float:y, Float:z)
+stock Float:worleyNoise3D(Float:x, Float:y, Float:z)
 {
     new Float:px = floatfloor(x), Float:py = floatfloor(y), Float:pz = floatfloor(z);
     new Float:fx = floatfract(x), Float:fy = floatfract(y), Float:fz = floatfract(z);
@@ -1320,7 +1320,7 @@ Float:worleyNoise3D(Float:x, Float:y, Float:z)
 
 #define exp(%0) (floatpower(2.71828, %0))
 
-Float:worleyNoise2D_F(Float:x, Float:y, Float:falloff)
+stock Float:worleyNoise2D_F(Float:x, Float:y, Float:falloff)
 {
     new Float:px = floatfloor(x), Float:py = floatfloor(y);
     new Float:fx = floatfract(x), Float:fy = floatfract(y);
@@ -1341,7 +1341,7 @@ Float:worleyNoise2D_F(Float:x, Float:y, Float:falloff)
 #undef dot
 #define dot(%0,%1) ((%0x * %1x) + (%0y * %1y) + (%0z * %1z))
 
-Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
+stock Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
 {
     new Float:px = floatfloor(x), Float:py = floatfloor(y), Float:pz = floatfloor(z);
     new Float:fx = floatfract(x), Float:fy = floatfract(y), Float:fz = floatfract(z);
@@ -1361,6 +1361,21 @@ Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
     }
     return -(1.0 / falloff) * log(res);
 }
+
+
+#undef FASTFLOOR
+#undef F2
+#undef G2
+#undef F3
+#undef G3
+#undef F4
+#undef G4
+#undef floatfloor
+#undef floatfract
+#undef dot
+#undef min
+#undef log
+#undef exp
 
 #endinput
 
@@ -2145,10 +2160,3 @@ pos			= mat * pos;
 return sum;
 }
 	
-#undef FASTFLOOR
-#undef F2
-#undef G2
-#undef F3
-#undef G3
-#undef F4
-#undef G4
