@@ -11,43 +11,43 @@ Simplex noise is better looking, faster and has proper derivatives without the g
 
 ```c++
 //! Returns a 1D simplex noise
-float noise( float x );
+Float:noise1D(Float:x);
 //! Returns a 2D simplex noise
-float noise( const glm::vec2 &v );
+Float:noise2D(Float:x, Float:y);
 //! Returns a 3D simplex noise
-float noise( const glm::vec3 &v );
+Float:noise3D(Float:x, Float:y, Float:z);
 //! Returns a 4D simplex noise
-float noise( const glm::vec4 &v );
+Float:noise4D(Float:x, Float:y, Float:z, Float:w);
 
 //! Returns a 1D simplex ridged noise
-float ridgedNoise( float x );
+Float:ridgedNoise1D(Float:x);
 //! Returns a 2D simplex ridged noise
-float ridgedNoise( const glm::vec2 &v );
+Float:ridgedNoise2D(Float:x, Float:y);
 //! Returns a 3D simplex ridged noise
-float ridgedNoise( const glm::vec3 &v );
+Float:ridgedNoise3D(Float:x, Float:y, Float:z);
 //! Returns a 4D simplex ridged noise
-float ridgedNoise( const glm::vec4 &v );
+Float:ridgedNoise4D(Float:x, Float:y, Float:z, Float:w);
 
 //! Returns a 1D simplex noise with analytical derivative.
-glm::vec2 dnoise( float x );
+dnoise1D(Float:x, &Float:rx, &Float:ry)
 //! Returns a 2D simplex noise with analytical derivatives.
-glm::vec3 dnoise( const glm::vec2 &v );
+dnoise2D(Float:x, Float:y, &Float:rx, &Float:ry, &Float:rz)
 //! Returns a 3D simplex noise with analytical derivatives.
-glm::vec4 dnoise( const glm::vec3 &v );
-// not optimal but easiest way to return 5 floats
-typedef std::array<float,5> vec5;
-//! Returns a 4D simplex noise with analytical derivatives
-vec5	dnoise( const glm::vec4 &v );
+dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+//! Returns a 4D simplex noise with analytical derivatives (not PAWN yet)
+// vec5	dnoise( const glm::vec4 &v );
 	
 //! Returns a 2D simplex cellular/worley noise
-float worleyNoise( const glm::vec2 &v );
+Float:worleyNoise2D(Float:x, Float:y)
 //! Returns a 3D simplex cellular/worley noise
-float worleyNoise( const glm::vec3 &v );
+Float:worleyNoise3D(Float:x, Float:y, Float:z)
 //! Returns a 2D simplex smooth cellular/worley noise
-float worleyNoise( const glm::vec2 &v, float falloff );
+Float:worleyNoise2D_F(Float:x, Float:y, Float:falloff)
 //! Returns a 3D simplex smooth cellular/worley noise
-float worleyNoise( const glm::vec3 &v, float falloff );
+Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
 
+
+/* None of the following is ported to PAWN yet
 //! Returns a 2D simplex noise with rotating gradients
 float flowNoise( const glm::vec2 &v, float angle );
 //! Returns a 3D simplex noise with rotating gradients
@@ -110,4 +110,5 @@ float iqfBm( const glm::vec3 &v, uint8_t octaves = 4, float lacunarity = 2.0f, f
 
 //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez that use a mat2 to transform each octave
 float iqMatfBm( const glm::vec2 &v, uint8_t octaves = 4, const glm::mat2 &mat = glm::mat2( 1.6, -1.2, 1.2, 1.6 ), float gain = 0.5f );
+*/
 ```
