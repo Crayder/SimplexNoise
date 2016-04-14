@@ -139,7 +139,7 @@ Float:iqMatfBm(const vec2 &v, uint8_t octaves = 4, const mat2 &mat = mat2(1.6, -
 	
 // implementation
 	
-#define FASTFLOOR(%0) (((%0)> 0) ? floatround(%0) : (floatround(%0)- 1))
+#define FASTFLOOR(%0) (((%0)> 0) ? floatround(%0, floatround_tozero) : (floatround(%0, floatround_tozero)- 1))
 
 /*
  * Permutation table. This is just a random jumble of all numbers 0 - 255,
