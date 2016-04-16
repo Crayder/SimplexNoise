@@ -78,13 +78,13 @@ vec2 curlNoise(const vec2 &v);
 //! Returns the curl of a 2D simplex flow noise
 vec2 curlNoise(const vec2 &v, Float:t);
 //! Returns the curl of a 2D simplex noise fractal brownian motion sum
-vec2 curlNoise(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain);
+vec2 curlNoise(const vec2 &v, octaves, Float:lacunarity, Float:gain);
 //! Returns the curl of a 3D simplex noise
 vec3 curlNoise(const vec3 &v);
 //! Returns the curl of a 3D simplex flow noise
 vec3 curlNoise(const vec3 &v, Float:t);
 //! Returns the curl approximation of a 3D simplex noise fractal brownian motion sum
-vec3 curlNoise(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain);
+vec3 curlNoise(const vec3 &v, octaves, Float:lacunarity, Float:gain);
 
 //! Returns the curl of a custom 2D potential using finite difference approximation
 vec2 curl(const vec2 &v, const std::function < float(const vec2&)> &potential, Float:delta = 1e - 4);
@@ -92,48 +92,48 @@ vec2 curl(const vec2 &v, const std::function < float(const vec2&)> &potential, F
 vec3 curl(const vec3 &v, const std::function < vec3(const vec3&)> &potential, Float:delta = 1e - 4);
 
 //! Returns a 1D simplex noise fractal brownian motion sum
-Float:fBm(Float:x, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:fBm(Float:x, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 2D simplex noise fractal brownian motion sum
-Float:fBm(const vec2 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:fBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 3D simplex noise fractal brownian motion sum
-Float:fBm(const vec3 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:fBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 4D simplex noise fractal brownian motion sum
-Float:fBm(const vec4 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:fBm(const vec4 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 	
 //! Returns a 2D simplex cellular / worley noise fractal brownian motion sum
-Float:worleyfBm(const vec2 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:worleyfBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 3D simplex cellular / worley noise fractal brownian motion sum
-Float:worleyfBm(const vec3 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:worleyfBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 2D simplex smooth cellular / worley noise fractal brownian motion sum
-Float:worleyfBm(const vec2 &v, Float:falloff, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:worleyfBm(const vec2 &v, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 3D simplex smooth cellular / worley noise fractal brownian motion sum
-Float:worleyfBm(const vec3 &v, Float:falloff, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:worleyfBm(const vec3 &v, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 
 //! Returns a 1D simplex noise fractal brownian motion sum with analytical derivatives
-vec2 dfBm(Float:x, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+vec2 dfBm(Float:x, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 2D simplex noise fractal brownian motion sum with analytical derivatives
-vec3 dfBm(const vec2 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+vec3 dfBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 3D simplex noise fractal brownian motion sum with analytical derivatives
-vec4 dfBm(const vec3 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+vec4 dfBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 4D simplex noise fractal brownian motion sum with analytical derivatives
-vec5	dfBm(const vec4 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+vec5	dfBm(const vec4 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 	
 //! Returns a 1D simplex ridged multi - fractal noise sum
-Float:ridgedMF(Float:x, Float:ridgeOffset = 1.0, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:ridgedMF(Float:x, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 2D simplex ridged multi - fractal noise sum
-Float:ridgedMF(const vec2 &v, Float:ridgeOffset = 1.0, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:ridgedMF(const vec2 &v, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 3D simplex ridged multi - fractal noise sum
-Float:ridgedMF(const vec3 &v, Float:ridgeOffset = 1.0, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:ridgedMF(const vec3 &v, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns a 4D simplex ridged multi - fractal noise sum
-Float:ridgedMF(const vec4 &v, Float:ridgeOffset = 1.0, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:ridgedMF(const vec4 &v, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 
 //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez
-Float:iqfBm(const vec2 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:iqfBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez
-Float:iqfBm(const vec3 &v, uint8_t octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
+Float:iqfBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
 
 //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez that use a mat2 to transform each octave
-Float:iqMatfBm(const vec2 &v, uint8_t octaves = 4, const mat2 &mat = mat2(1.6, - 1.2, 1.2, 1.6), Float:gain = 0.5);
+Float:iqMatfBm(const vec2 &v, octaves = 4, const mat2 &mat = mat2(1.6, - 1.2, 1.2, 1.6), Float:gain = 0.5);
 */
 	
 	
@@ -425,7 +425,8 @@ stock Float:noise1D(Float:x)
     // The maximum value of this noise is 8 *(3 / 4)^4 = 2.53125
     // A factor of 0.395 would scale to fit exactly within [- 1,1], but
     // we want to match PRMan's 1D noise, so we scale it down some more.
-    return 0.25 * (n0 + n1);
+    // return 0.25 * (n0 + n1);
+    return 0.395 * (n0 + n1);
 }
 
 // 2D simplex noise
@@ -1054,7 +1055,7 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
 }
 
 /*
-vec5 dnoise(const vec4 &v)
+vec5 dnoise(Float:x, Float:y, Float:z, Float:w)
 {
 Float:n0, n1, n2, n3, n4; // Noise contributions from the five corners
 Float:noise; // Return value
@@ -1155,7 +1156,7 @@ if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = gw0 = 0.0;
 else {
 t20 = t0 * t0;
 t40 = t20 * t20;
-grad4(perm[ii + perm[jj + perm[kk + perm[ll]]]], &gx0, &gy0, &gz0, &gw0);
+grad4(perm[ii + perm[jj + perm[kk + perm[ll]]]], gx0, gy0, gz0, gw0);
 n0 = t40 * (gx0 * x0 + gy0 * y0 + gz0 * z0 + gw0 * w0);
 }
 
@@ -1164,7 +1165,7 @@ if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = gw1 = 0.0;
 else {
 t21 = t1 * t1;
 t41 = t21 * t21;
-grad4(perm[ii + i1 + perm[jj + j1 + perm[kk + k1 + perm[ll + l1]]]], &gx1, &gy1, &gz1, &gw1);
+grad4(perm[ii + i1 + perm[jj + j1 + perm[kk + k1 + perm[ll + l1]]]], gx1, gy1, gz1, gw1);
 n1 = t41 * (gx1 * x1 + gy1 * y1 + gz1 * z1 + gw1 * w1);
 }
 
@@ -1173,7 +1174,7 @@ if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = gw2 = 0.0;
 else {
 t22 = t2 * t2;
 t42 = t22 * t22;
-grad4(perm[ii + i2 + perm[jj + j2 + perm[kk + k2 + perm[ll + l2]]]], &gx2, &gy2, &gz2, &gw2);
+grad4(perm[ii + i2 + perm[jj + j2 + perm[kk + k2 + perm[ll + l2]]]], gx2, gy2, gz2, gw2);
 n2 = t42 * (gx2 * x2 + gy2 * y2 + gz2 * z2 + gw2 * w2);
 }
 
@@ -1182,7 +1183,7 @@ if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = gw3 = 0.0;
 else {
 t23 = t3 * t3;
 t43 = t23 * t23;
-grad4(perm[ii + i3 + perm[jj + j3 + perm[kk + k3 + perm[ll + l3]]]], &gx3, &gy3, &gz3, &gw3);
+grad4(perm[ii + i3 + perm[jj + j3 + perm[kk + k3 + perm[ll + l3]]]], gx3, gy3, gz3, gw3);
 n3 = t43 * (gx3 * x3 + gy3 * y3 + gz3 * z3 + gw3 * w3);
 }
 
@@ -1191,7 +1192,7 @@ if(t4 < 0.0) n4 = t4 = t24 = t44 = gx4 = gy4 = gz4 = gw4 = 0.0;
 else {
 t24 = t4 * t4;
 t44 = t24 * t24;
-grad4(perm[ii + 1 + perm[jj + 1 + perm[kk + 1 + perm[ll + 1]]]], &gx4, &gy4, &gz4, &gw4);
+grad4(perm[ii + 1 + perm[jj + 1 + perm[kk + 1 + perm[ll + 1]]]], gx4, gy4, gz4, gw4);
 n4 = t44 * (gx4 * x4 + gy4 * y4 + gz4 * z4 + gw4 * w4);
 }
 
@@ -1362,6 +1363,861 @@ stock Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
     return -(1.0 / falloff) * log(res);
 }
 
+stock Float:flowNoise2D(Float:x, Float:y, Float:angle)
+{
+    new Float:n0, Float:n1, Float:n2; /* Noise contributions from the three simplex corners */
+    new Float:gx0, Float:gy0, Float:gx1, Float:gy1, Float:gx2, Float:gy2; /* Gradients at simplex corners */
+    new Float:sin_t, Float:cos_t; /* Sine and cosine for the gradient rotation angle */
+    sin_t = floatsin(angle, degrees);
+    cos_t = floatcos(angle, degrees);
+
+    /* Skew the input space to determine which simplex cell we're in */
+    new Float:s = (x + y) * F2; /* Hairy factor for 2D */
+    new Float:xs = x + s;
+    new Float:ys = y + s;
+    new i = FASTFLOOR(xs);
+    new j = FASTFLOOR(ys);
+
+    new Float:t = float(i + j) * G2;
+    new Float:X0 = i - t; /* Unskew the cell origin back to (x,y) space */
+    new Float:Y0 = j - t;
+    new Float:x0 = x - X0; /* The x,y distances from the cell origin */
+    new Float:y0 = y - Y0;
+
+    /* For the 2D case, the simplex shape is an equilateral triangle.
+    * Determine which simplex we are in. */
+    new i1, j1; /* Offsets for second (middle) corner of simplex in (i,j) coords */
+    if(x0 > y0) { i1 = 1; j1 = 0; } /* lower triangle, XY order: (0,0)->(1,0)->(1,1) */
+    else { i1 = 0; j1 = 1; }      /* upper triangle, YX order: (0,0)->(0,1)->(1,1) */
+
+    /* A step of (1,0) in (i,j) means a step of (1 - c,- c) in (x,y), and
+    * a step of (0,1) in (i,j) means a step of (- c,1 - c) in (x,y), where
+    * c = (3 - sqrt(3))/ 6   */
+    new Float:x1 = x0 - i1 + G2; /* Offsets for middle corner in (x,y) unskewed coords */
+    new Float:y1 = y0 - j1 + G2;
+    new Float:x2 = x0 - 1.0 + 2.0 * G2; /* Offsets for last corner in (x,y) unskewed coords */
+    new Float:y2 = y0 - 1.0 + 2.0 * G2;
+
+    /* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
+    new ii = i & 0xff;
+    new jj = j & 0xff;
+
+    /* Calculate the contribution from the three corners */
+    new Float:t0 = 0.5 - x0 * x0 - y0 * y0;
+    new Float:t20, Float:t40;
+    if(t0 < 0.0) t40 = t20 = t0 = n0 = gx0 = gy0 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + perm[jj]], sin_t, cos_t, gx0, gy0);
+        t20 = t0 * t0;
+        t40 = t20 * t20;
+        n0 = t40 * graddotp2(gx0, gy0, x0, y0);
+    }
+
+    new Float:t1 = 0.5 - x1 * x1 - y1 * y1;
+    new Float:t21, Float:t41;
+    if(t1 < 0.0) t21 = t41 = t1 = n1 = gx1 = gy1 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + i1 + perm[jj + j1]], sin_t, cos_t, gx1, gy1);
+        t21 = t1 * t1;
+        t41 = t21 * t21;
+        n1 = t41 * graddotp2(gx1, gy1, x1, y1);
+    }
+
+    new Float:t2 = 0.5 - x2 * x2 - y2 * y2;
+    new Float:t22, Float:t42;
+    if(t2 < 0.0) t42 = t22 = t2 = n2 = gx2 = gy2 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + 1 + perm[jj + 1]], sin_t, cos_t, gx2, gy2);
+        t22 = t2 * t2;
+        t42 = t22 * t22;
+        n2 = t42 * graddotp2(gx2, gy2, x2, y2);
+    }
+
+    /* Add contributions from each corner to get the final noise value.
+    * The result is scaled to return values in the interval [- 1,1]. */
+    return 40.0 * (n0 + n1 + n2);
+}
+
+stock Float:flowNoise3D(Float:x, Float:y, Float:z, Float:angle)
+{
+    new Float:n0, Float:n1, Float:n2, Float:n3; /* Noise contributions from the four simplex corners */
+    new Float:gx0, Float:gy0, Float:gz0, Float:gx1, Float:gy1, Float:gz1; /* Gradients at simplex corners */
+    new Float:gx2, Float:gy2, Float:gz2, Float:gx3, Float:gy3, Float:gz3;
+    new Float:sin_t, Float:cos_t; /* Sine and cosine for the gradient rotation angle */
+    sin_t = floatsin(angle, degrees);
+    cos_t = floatcos(angle, degrees);
+
+    /* Skew the input space to determine which simplex cell we're in */
+    new Float:s = (x + y + z)*F3; /* Very nice and simple skew factor for 3D */
+    new Float:xs = x + s;
+    new Float:ys = y + s;
+    new Float:zs = z + s;
+    new i = FASTFLOOR(xs);
+    new j = FASTFLOOR(ys);
+    new k = FASTFLOOR(zs);
+
+    new Float:t = float(i + j + k)*G3;
+    new Float:X0 = i - t; /* Unskew the cell origin back to (x,y,z) space */
+    new Float:Y0 = j - t;
+    new Float:Z0 = k - t;
+    new Float:x0 = x -X0; /* The x,y,z distances from the cell origin */
+    new Float:y0 = y -Y0;
+    new Float:z0 = z -Z0;
+
+    /* For the 3D case, the simplex shape is a slightly irregular tetrahedron.
+    * Determine which simplex we are in. */
+    new i1, j1, k1; /* Offsets for second corner of simplex in (i,j,k) coords */
+    new i2, j2, k2; /* Offsets for third corner of simplex in (i,j,k) coords */
+
+    /* TODO: This code would benefit from a backport from the GLSL version! */
+    if(x0 >= y0) {
+        if(y0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* X Y Z order */
+        else if(x0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 0; k2 = 1; } /* X Z Y order */
+        else { i1 = 0; j1 = 0; k1 = 1; i2 = 1; j2 = 0; k2 = 1; } /* Z X Y order */
+    }
+    else { // x0 < y0
+        if(y0 < z0) { i1 = 0; j1 = 0; k1 = 1; i2 = 0; j2 = 1; k2 = 1; } /* Z Y X order */
+        else if(x0 < z0) { i1 = 0; j1 = 1; k1 = 0; i2 = 0; j2 = 1; k2 = 1; } /* Y Z X order */
+        else { i1 = 0; j1 = 1; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* Y X Z order */
+    }
+
+    /* A step of (1,0,0) in (i,j,k) means a step of (1 - c,- c,- c) in (x,y,z),
+    * a step of (0,1,0) in (i,j,k) means a step of (- c,1 - c,- c) in (x,y,z), and
+    * a step of (0,0,1) in (i,j,k) means a step of (- c,- c,1 - c) in (x,y,z), where
+    * c = 1 / 6.   */
+
+    new Float:x1 = x0 - i1 + G3; /* Offsets for second corner in (x,y,z) coords */
+    new Float:y1 = y0 - j1 + G3;
+    new Float:z1 = z0 - k1 + G3;
+    new Float:x2 = x0 - i2 + 2.0 * G3; /* Offsets for third corner in (x,y,z) coords */
+    new Float:y2 = y0 - j2 + 2.0 * G3;
+    new Float:z2 = z0 - k2 + 2.0 * G3;
+    new Float:x3 = x0 - 1.0 + 3.0 * G3; /* Offsets for last corner in (x,y,z) coords */
+    new Float:y3 = y0 - 1.0 + 3.0 * G3;
+    new Float:z3 = z0 - 1.0 + 3.0 * G3;
+
+    /* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
+    new ii = i & 0xff;
+    new jj = j & 0xff;
+    new kk = k & 0xff;
+
+    /* Calculate the contribution from the four corners */
+    new Float:t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
+    new Float:t20, Float:t40;
+    if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = 0.0;
+    else {
+        gradrot3(perm[ii + perm[jj + perm[kk]]], sin_t, cos_t, gx0, gy0, gz0);
+        t20 = t0 * t0;
+        t40 = t20 * t20;
+        n0 = t40 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
+    }
+
+    new Float:t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
+    new Float:t21, Float:t41;
+    if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = 0.0;
+    else {
+        gradrot3(perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]], sin_t, cos_t, gx1, gy1, gz1);
+        t21 = t1 * t1;
+        t41 = t21 * t21;
+        n1 = t41 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
+    }
+
+    new Float:t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
+    new Float:t22, Float:t42;
+    if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = 0.0;
+    else {
+        gradrot3(perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]], sin_t, cos_t, gx2, gy2, gz2);
+        t22 = t2 * t2;
+        t42 = t22 * t22;
+        n2 = t42 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
+    }
+
+    new Float:t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
+    new Float:t23, Float:t43;
+    if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = 0.0;
+    else {
+        gradrot3(perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]], sin_t, cos_t, gx3, gy3, gz3);
+        t23 = t3 * t3;
+        t43 = t23 * t23;
+        n3 = t43 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
+    }
+
+    /*  Add contributions from each corner to get the final noise value.
+    * The result is scaled to return values in the range [- 1,1] */
+    return 28.0 * (n0 + n1 + n2 + n3);
+}
+
+stock dFlowNoise2D(Float:x, Float:y, Float:angle, &Float:rx, &Float:ry, &Float:rz)
+{
+    new Float:n0, Float:n1, Float:n2; /* Noise contributions from the three simplex corners */
+    new Float:gx0, Float:gy0, Float:gx1, Float:gy1, Float:gx2, Float:gy2; /* Gradients at simplex corners */
+    new Float:sin_t, Float:cos_t; /* Sine and cosine for the gradient rotation angle */
+    sin_t = floatsin(angle, degrees);
+    cos_t = floatcos(angle, degrees);
+
+    /* Skew the input space to determine which simplex cell we're in */
+    new Float:s = (x + y) * F2; /* Hairy factor for 2D */
+    new Float:xs = x + s;
+    new Float:ys = y + s;
+    new i = FASTFLOOR(xs);
+    new j = FASTFLOOR(ys);
+
+    new Float:t = float(i + j) * G2;
+    new Float:X0 = i - t; /* Unskew the cell origin back to (x,y) space */
+    new Float:Y0 = j - t;
+    new Float:x0 = x - X0; /* The x,y distances from the cell origin */
+    new Float:y0 = y - Y0;
+
+    /* For the 2D case, the simplex shape is an equilateral triangle.
+    * Determine which simplex we are in. */
+    new i1, j1; /* Offsets for second (middle) corner of simplex in (i,j) coords */
+    if(x0 > y0) { i1 = 1; j1 = 0; } /* lower triangle, XY order: (0,0)->(1,0)->(1,1) */
+    else { i1 = 0; j1 = 1; }      /* upper triangle, YX order: (0,0)->(0,1)->(1,1) */
+
+    /* A step of (1,0) in (i,j) means a step of (1 - c,- c) in (x,y), and
+    * a step of (0,1) in (i,j) means a step of (- c,1 - c) in (x,y), where
+    * c = (3 - sqrt(3))/ 6   */
+    new Float:x1 = x0 - i1 + G2; /* Offsets for middle corner in (x,y) unskewed coords */
+    new Float:y1 = y0 - j1 + G2;
+    new Float:x2 = x0 - 1.0 + 2.0 * G2; /* Offsets for last corner in (x,y) unskewed coords */
+    new Float:y2 = y0 - 1.0 + 2.0 * G2;
+
+    /* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
+    new ii = i & 0xff;
+    new jj = j & 0xff;
+
+    /* Calculate the contribution from the three corners */
+    new Float:t0 = 0.5 - x0 * x0 - y0 * y0;
+    new Float:t20, Float:t40;
+    if(t0 < 0.0) t40 = t20 = t0 = n0 = gx0 = gy0 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + perm[jj]], sin_t, cos_t, gx0, gy0);
+        t20 = t0 * t0;
+        t40 = t20 * t20;
+        n0 = t40 * graddotp2(gx0, gy0, x0, y0);
+    }
+ 
+    new Float:t1 = 0.5 - x1 * x1 - y1 * y1;
+    new Float:t21, Float:t41;
+    if(t1 < 0.0) t21 = t41 = t1 = n1 = gx1 = gy1 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + i1 + perm[jj + j1]], sin_t, cos_t, gx1, gy1);
+        t21 = t1 * t1;
+        t41 = t21 * t21;
+        n1 = t41 * graddotp2(gx1, gy1, x1, y1);
+    }
+ 
+    new Float:t2 = 0.5 - x2 * x2 - y2 * y2;
+    new Float:t22, Float:t42;
+    if(t2 < 0.0) t42 = t22 = t2 = n2 = gx2 = gy2 = 0.0; /* No influence */
+    else {
+        gradrot2(perm[ii + 1 + perm[jj + 1]], sin_t, cos_t, gx2, gy2);
+        t22 = t2 * t2;
+        t42 = t22 * t22;
+        n2 = t42 * graddotp2(gx2, gy2, x2, y2);
+    }
+
+    /* Add contributions from each corner to get the final noise value.
+    * The result is scaled to return values in the interval [- 1,1]. */
+    new Float:noise = 40.0 * (n0 + n1 + n2);
+
+    /* Compute derivative, if requested by supplying non - null pointers
+    * for the last two arguments */
+    new Float:dnoise_dx, Float:dnoise_dy;
+
+    /*  A straight, unoptimised calculation would be like:
+    *    * dnoise_dx = - 8.0 * t20 * t0 * x0 * graddotp2(gx0, gy0, x0, y0) + t40 * gx0;
+    *    * dnoise_dy = - 8.0 * t20 * t0 * y0 * graddotp2(gx0, gy0, x0, y0) + t40 * gy0;
+    *    * dnoise_dx += - 8.0 * t21 * t1 * x1 * graddotp2(gx1, gy1, x1, y1) + t41 * gx1;
+    *    * dnoise_dy += - 8.0 * t21 * t1 * y1 * graddotp2(gx1, gy1, x1, y1) + t41 * gy1;
+    *    * dnoise_dx += - 8.0 * t22 * t2 * x2 * graddotp2(gx2, gy2, x2, y2) + t42 * gx2;
+    *    * dnoise_dy += - 8.0 * t22 * t2 * y2 * graddotp2(gx2, gy2, x2, y2) + t42 * gy2;
+    */
+    new Float:temp0 = t20 * t0 * graddotp2(gx0, gy0, x0, y0);
+    dnoise_dx = temp0 * x0;
+    dnoise_dy = temp0 * y0;
+    new Float:temp1 = t21 * t1 * graddotp2(gx1, gy1, x1, y1);
+    dnoise_dx += temp1 * x1;
+    dnoise_dy += temp1 * y1;
+    new Float:temp2 = t22 * t2 * graddotp2(gx2, gy2, x2, y2);
+    dnoise_dx += temp2 * x2;
+    dnoise_dy += temp2 * y2;
+    dnoise_dx *= - 8.0;
+    dnoise_dy *= - 8.0;
+    /* This corrects a bug in the original implementation */
+    dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2;
+    dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2;
+    dnoise_dx *= 40.0; /* Scale derivative to match the noise scaling */
+    dnoise_dy *= 40.0;
+ 
+    rx = noise, ry = dnoise_dx, rz = dnoise_dy;
+}
+
+stock dFlowNoise(Float:x, Float:y, Float:z, Float:angle, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+{
+    new Float:n0, Float:n1, Float:n2, Float:n3; /* Noise contributions from the four simplex corners */
+    new Float:noise;          /* Return value */
+    new Float:gx0, Float:gy0, Float:gz0, Float:gx1, Float:gy1, Float:gz1; /* Gradients at simplex corners */
+    new Float:gx2, Float:gy2, Float:gz2, Float:gx3, Float:gy3, Float:gz3;
+    new Float:sin_t, Float:cos_t; /* Sine and cosine for the gradient rotation angle */
+    sin_t = floatsin(angle, degrees);
+    cos_t = floatcos(angle, degrees);
+
+    /* Skew the input space to determine which simplex cell we're in */
+    new Float:s = (x + y + z)*F3; /* Very nice and simple skew factor for 3D */
+    new Float:xs = x + s;
+    new Float:ys = y + s;
+    new Float:zs = z + s;
+    new i = FASTFLOOR(xs);
+    new j = FASTFLOOR(ys);
+    new k = FASTFLOOR(zs);
+
+    new Float:t = float(i + j + k)*G3;
+    new Float:X0 = i - t; /* Unskew the cell origin back to (x,y,z) space */
+    new Float:Y0 = j - t;
+    new Float:Z0 = k - t;
+    new Float:x0 = x -X0; /* The x,y,z distances from the cell origin */
+    new Float:y0 = y -Y0;
+    new Float:z0 = z -Z0;
+
+    /* For the 3D case, the simplex shape is a slightly irregular tetrahedron.
+    * Determine which simplex we are in. */
+    new i1, j1, k1; /* Offsets for second corner of simplex in (i,j,k) coords */
+    new i2, j2, k2; /* Offsets for third corner of simplex in (i,j,k) coords */
+
+    /* TODO: This code would benefit from a backport from the GLSL version! */
+    if(x0 >= y0) {
+        if(y0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* X Y Z order */
+        else if(x0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 0; k2 = 1; } /* X Z Y order */
+        else { i1 = 0; j1 = 0; k1 = 1; i2 = 1; j2 = 0; k2 = 1; } /* Z X Y order */
+    }
+    else { // x0 < y0
+        if(y0 < z0) { i1 = 0; j1 = 0; k1 = 1; i2 = 0; j2 = 1; k2 = 1; } /* Z Y X order */
+        else if(x0 < z0) { i1 = 0; j1 = 1; k1 = 0; i2 = 0; j2 = 1; k2 = 1; } /* Y Z X order */
+        else { i1 = 0; j1 = 1; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* Y X Z order */
+    }
+
+    /* A step of (1,0,0) in (i,j,k) means a step of (1 - c,- c,- c) in (x,y,z),
+    * a step of (0,1,0) in (i,j,k) means a step of (- c,1 - c,- c) in (x,y,z), and
+    * a step of (0,0,1) in (i,j,k) means a step of (- c,- c,1 - c) in (x,y,z), where
+    * c = 1 / 6.   */
+
+    new Float:x1 = x0 - i1 + G3; /* Offsets for second corner in (x,y,z) coords */
+    new Float:y1 = y0 - j1 + G3;
+    new Float:z1 = z0 - k1 + G3;
+    new Float:x2 = x0 - i2 + 2.0 * G3; /* Offsets for third corner in (x,y,z) coords */
+    new Float:y2 = y0 - j2 + 2.0 * G3;
+    new Float:z2 = z0 - k2 + 2.0 * G3;
+    new Float:x3 = x0 - 1.0 + 3.0 * G3; /* Offsets for last corner in (x,y,z) coords */
+    new Float:y3 = y0 - 1.0 + 3.0 * G3;
+    new Float:z3 = z0 - 1.0 + 3.0 * G3;
+
+    /* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
+    new ii = i & 0xff;
+    new jj = j & 0xff;
+    new kk = k & 0xff;
+
+    /* Calculate the contribution from the four corners */
+    new Float:t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
+    new Float:t20, Float:t40;
+    if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = 0.0;
+    else {
+        gradrot3(perm[ii + perm[jj + perm[kk]]], sin_t, cos_t, gx0, gy0, gz0);
+        t20 = t0 * t0;
+        t40 = t20 * t20;
+        n0 = t40 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
+    }
+
+    new Float:t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
+    new Float:t21, Float:t41;
+    if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = 0.0;
+    else {
+        gradrot3(perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]], sin_t, cos_t, gx1, gy1, gz1);
+        t21 = t1 * t1;
+        t41 = t21 * t21;
+        n1 = t41 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
+    }
+
+    new Float:t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
+    new Float:t22, Float:t42;
+    if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = 0.0;
+    else {
+        gradrot3(perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]], sin_t, cos_t, gx2, gy2, gz2);
+        t22 = t2 * t2;
+        t42 = t22 * t22;
+        n2 = t42 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
+    }
+
+    new Float:t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
+    new Float:t23, Float:t43;
+    if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = 0.0;
+    else {
+        gradrot3(perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]], sin_t, cos_t, gx3, gy3, gz3);
+        t23 = t3 * t3;
+        t43 = t23 * t23;
+        n3 = t43 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
+    }
+
+    /*  Add contributions from each corner to get the final noise value.
+    * The result is scaled to return values in the range [- 1,1] */
+    noise = 28.0 * (n0 + n1 + n2 + n3);
+
+    /* Compute derivative, if requested by supplying non - null pointers
+    * for the last three arguments */
+    new Float:dnoise_dx, Float:dnoise_dy, Float:dnoise_dz;
+
+    /*  A straight, unoptimised calculation would be like:
+    *     * dnoise_dx = - 8.0 * t20 * t0 * x0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gx0;
+    *    * dnoise_dy = - 8.0 * t20 * t0 * y0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gy0;
+    *    * dnoise_dz = - 8.0 * t20 * t0 * z0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gz0;
+    *    * dnoise_dx += - 8.0 * t21 * t1 * x1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gx1;
+    *    * dnoise_dy += - 8.0 * t21 * t1 * y1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gy1;
+    *    * dnoise_dz += - 8.0 * t21 * t1 * z1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gz1;
+    *    * dnoise_dx += - 8.0 * t22 * t2 * x2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gx2;
+    *    * dnoise_dy += - 8.0 * t22 * t2 * y2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gy2;
+    *    * dnoise_dz += - 8.0 * t22 * t2 * z2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gz2;
+    *    * dnoise_dx += - 8.0 * t23 * t3 * x3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gx3;
+    *    * dnoise_dy += - 8.0 * t23 * t3 * y3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gy3;
+    *    * dnoise_dz += - 8.0 * t23 * t3 * z3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gz3;
+    */
+    new Float:temp0 = t20 * t0 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
+    dnoise_dx = temp0 * x0;
+    dnoise_dy = temp0 * y0;
+    dnoise_dz = temp0 * z0;
+    new Float:temp1 = t21 * t1 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
+    dnoise_dx += temp1 * x1;
+    dnoise_dy += temp1 * y1;
+    dnoise_dz += temp1 * z1;
+    new Float:temp2 = t22 * t2 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
+    dnoise_dx += temp2 * x2;
+    dnoise_dy += temp2 * y2;
+    dnoise_dz += temp2 * z2;
+    new Float:temp3 = t23 * t3 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
+    dnoise_dx += temp3 * x3;
+    dnoise_dy += temp3 * y3;
+    dnoise_dz += temp3 * z3;
+    dnoise_dx *= - 8.0;
+    dnoise_dy *= - 8.0;
+    dnoise_dz *= - 8.0;
+    /* This corrects a bug in the original implementation */
+    dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2 + t43 * gx3;
+    dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2 + t43 * gy3;
+    dnoise_dz += t40 * gz0 + t41 * gz1 + t42 * gz2 + t43 * gz3;
+    dnoise_dx *= 28.0; /* Scale derivative to match the noise scaling */
+    dnoise_dy *= 28.0;
+    dnoise_dz *= 28.0;
+
+    rx = noise, ry = dnoise_dx, rz = dnoise_dy, rw = dnoise_dz;
+}
+
+stock curlNoise2D(Float:x, Float:y, &Float:rx, &Float:ry)
+{
+    new Float:dx, Float:dy, Float:dz;
+    dnoise(x, y, dx, dy, dz);
+    rx = dz, ry = -dy;
+}
+stock curlFlowNoise2D(Float:x, Float:y, Float:t, &Float:rx, &Float:ry)
+{
+    new Float:dx, Float:dy, Float:dz;
+    dFlowNoise2D(x, y, t, dx, dy, dz);
+    rx = dz, ry = -dy;
+}
+stock curlNoiseBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry)
+{
+    new Float:dx, Float:dy, Float:dz;
+    dfBm(x, y, octaves, lacunarity, gain, dx, dy, dz);
+    rx = dz, ry = -dy;
+}
+/*vec3 curlNoise(Float:x, Float:y, Float:z)
+{
+const vec4 derivX = dnoise(v);
+const vec4 derivY = dnoise(v + vec3(123.456, 789.012, 345.678));
+const vec4 derivZ = dnoise(v + vec3(901.234, 567.891, 234.567));
+return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
+}
+vec3 curlNoise(Float:x, Float:y, Float:z, Float:t)
+{
+const vec4 derivX = dFlowNoise(v, t);
+const vec4 derivY = dFlowNoise(v + vec3(123.456, 789.012, 345.678), t);
+const vec4 derivZ = dFlowNoise(v + vec3(901.234, 567.891, 234.567), t);
+return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
+}
+vec3 curlNoise(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+{
+const vec4 derivX = dfBm(v, octaves, lacunarity, gain);
+const vec4 derivY = dfBm(v + vec3(123.456, 789.012, 345.678), octaves, lacunarity, gain);
+const vec4 derivZ = dfBm(v + vec3(901.234, 567.891, 234.567), octaves, lacunarity, gain);
+return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
+}*/
+
+/*vec2 curl(Float:x, Float:y, const std::function < float(const vec2&)> &potential, Float:delta)
+{
+const vec2 deltaX = vec2(delta, 0.0);
+const vec2 deltaY = vec2(0.0, delta);
+return vec2(-(potential(v + deltaY) - potential(v - deltaY)),
+(potential(v + deltaX) - potential(v - deltaX))) / (2.0 * delta);
+}
+vec3 curl(Float:x, Float:y, Float:z, const std::function < vec3(const vec3&)> &potential, Float:delta)
+{
+const vec3 deltaX = vec3(delta, 0.0, 0.0);
+const vec3 deltaY = vec3(0.0, delta, 0.0);
+const vec3 deltaZ = vec3(0.0, 0.0, delta);
+return vec3(((potential(v + deltaY).z - potential(v - deltaY).z)
+-(potential(v + deltaZ).y - potential(v - deltaZ).y)),
+((potential(v + deltaZ).x - potential(v - deltaZ).x)
+-(potential(v + deltaX).z - potential(v - deltaX).z)),
+((potential(v + deltaX).y - potential(v - deltaX).y)
+-(potential(v + deltaY).x - potential(v - deltaY).x))) / (2.0 * delta);
+}*/
+
+stock Float:fBm1D(Float:x, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = noise1D(x * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+stock Float:fBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = noise2D(x * freq, y * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+
+stock Float:fBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = noise3D(x * freq, y * freq, z * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+stock Float:fBm4D(Float:x, Float:y, Float:z, Float:w, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = noise4D(x * freq, y * freq, z * freq, w * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+
+
+
+stock Float:worleyfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = worleyNoise2D(x * freq, y * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+stock Float:worleyfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = worleyNoise3D(x * freq, y * freq, z * freq);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+stock Float:worleyfBm2D_F(Float:x, Float:y, Float:falloff, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = worleyNoise2D_F(x * freq, y * freq, falloff);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+stock Float:worleyfBm3D_F(Float:x, Float:y, Float:z, Float:falloff, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum   = 0.0;
+    new Float:freq  = 1.0;
+    new Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n = worleyNoise3D_F(x * freq, y * freq, z * freq, falloff);
+        sum += n * amp;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+
+
+
+stock dfBm1D(Float:x, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry)
+{
+    new Float:freq		= 1.0;
+    new Float:amp		= 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:nx, Float:ny;
+        dnoise1D(x * freq, nx, ny);
+        
+        rx += nx * amp;
+        ry += ny * amp;
+        
+        freq *= lacunarity;
+        amp *= gain;
+    }
+}
+
+stock dfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry, &Float:rz)
+{
+    new Float:freq		= 1.0;
+    new Float:amp		= 0.5;
+    
+    rx = ry = rz = rw = 0.0;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:nx, Float:ny, Float:nz;
+        dnoise2D(x * freq, y * freq, nx, ny, nz);
+        
+        rx += nx * amp;
+        ry += ny * amp;
+        rz += nz * amp;
+        
+        freq *= lacunarity;
+        amp *= gain;
+    }
+}
+
+stock dfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+{
+    new Float:freq		= 1.0;
+    new Float:amp		= 0.5;
+    
+    rx = ry = rz = rw = 0.0;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:nx, Float:ny, Float:nz, Float:nw;
+        dnoise3D(x * freq, y * freq, z * freq, nx, ny, nz, nw);
+        
+        rx += nx * amp;
+        ry += ny * amp;
+        rz += nz * amp;
+        rw += nw * amp;
+        
+        freq *= lacunarity;
+        amp *= gain;
+    }
+}
+
+/*vec5 dfBm(Float:x, Float:y, Float:z, Float:w, octaves, Float:lacunarity, Float:gain)
+{
+    vec5 sum = { 0.0, 0.0, 0.0, 0.0, 0.0 };
+    Float:freq  = 1.0;
+    Float:amp   = 0.5;
+
+    for(new i = 0; i < octaves; i ++){
+    vec5 n = dnoise(v * freq);
+    sum[0]			+= n[0]* amp;
+    sum[1]			+= n[1]* amp;
+    sum[2]			+= n[2]* amp;
+    sum[3]			+= n[3]* amp;
+    sum[4]			+= n[4]* amp;
+    freq			*= lacunarity;
+    amp				*= gain;
+    }
+
+    return sum;
+}*/
+
+
+
+stock Float:ridge(Float:h, Float:offset)
+{
+    h = offset - floatabs(h);
+    return h * h;
+}
+
+stock Float:ridgedMF1D(Float:x, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum	= 0;
+    new Float:freq	= 1.0;
+    new Float:amp	= 0.5;
+    new Float:prev	= 1.0;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n	= ridge(noise1D(x * freq), ridgeOffset);
+        sum += n * amp * prev;
+        prev = n;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+    return sum;
+}
+
+stock Float:ridgedMF2D(Float:x, Float:y, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+{
+    Float:sum	= 0;
+    Float:freq	= 1.0;
+    Float:amp	= 0.5;
+    Float:prev	= 1.0;
+
+    for(new i = 0; i < octaves; i ++){
+        Float:n	= ridge(noise2D(x * freq, y * freq), ridgeOffset);
+        sum += n * amp * prev;
+        prev = n;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+    return sum;
+}
+
+stock Float:ridgedMF3D(Float:x, Float:y, Float:z, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum	= 0;
+    new Float:freq	= 1.0;
+    new Float:amp	= 0.5;
+    new Float:prev	= 1.0;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n	= ridge(noise3D(x * freq, y * freq, z * freq), ridgeOffset);
+        sum += n * amp * prev;
+        prev = n;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+    return sum;
+}
+
+stock Float:ridgedMF4D(Float:x, Float:y, Float:z, Float:w, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum	= 0;
+    new Float:freq	= 1.0;
+    new Float:amp	= 0.5;
+    new Float:prev	= 1.0;
+
+    for(new i = 0; i < octaves; i ++){
+        new Float:n	= ridge(noise4D(x * freq, y * freq, z * freq, w * freq), ridgeOffset);
+        sum += n * amp * prev;
+        prev = n;
+        freq *= lacunarity;
+        amp *= gain;
+    }
+    return sum;
+}
+
+stock Float:iqfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum	= 0.0;
+    new Float:amp	= 0.5;
+    new Float:dx	= 0.0;
+    new Float:dy	= 0.0;
+    new Float:freq	= 1.0;
+    
+    for(new i = 0; i < octaves; i ++) {
+        new Float:px, Float:py, Float:pz;
+        dnoise2D(x * freq, y * freq, px, py, pz);
+        
+        dx += py;
+        dy += py;
+        
+        sum += amp * px / (1.0 + dx * dx + dy * dy);
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+
+stock Float:iqfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+{
+    new Float:sum	= 0.0;
+    new Float:amp	= 0.5;
+    new Float:dx	= 0.0;
+    new Float:dy	= 0.0;
+    new Float:dz	= 0.0;
+    new Float:freq	= 1.0;
+    
+    for(new i = 0; i < octaves; i ++) {
+        new Float:px, Float:py, Float:pz, Float:pw;
+        dnoise3D(x * freq, y * freq, z * freq, px, py, pz, pw);
+        
+        dx += py;
+        dy += py;
+        dz += pz;
+        
+        sum += amp * px / (1.0 + dx * dx + dy * dy + pz * pz);
+        freq *= lacunarity;
+        amp *= gain;
+    }
+
+    return sum;
+}
+
+/*Float:iqMatfBm2D(Float:x, Float:y, octaves, Float:mat[4] = {1.6, -1.2, 1.2, 1.6}, Float:gain = 0.5)
+{
+    Float:sum = 0.0;
+    Float:amp = 1.0;
+    Float:posx = x;
+    Float:posy = y;
+    Float:noiseAccumY;
+    Float:noiseAccumZ;
+    
+    for(new i = 0; i < octaves; i ++){
+        new Float:nx, Float:ny, Float:nz;
+        dnoise(posx, posy, nx, ny, nz);
+        noiseAccumY += ny, noiseAccumZ += nz;noiseAccum
+        sum += amp * nx / (1.0 + ((noiseAccumY * noiseAccumY) + (noiseAccumZ * noiseAccumZ)));
+        amp *= gain;
+        pos = mat * pos; // the fuxk is this
+    }
+    return sum;
+}*/
 
 #undef FASTFLOOR
 #undef F2
@@ -1378,785 +2234,4 @@ stock Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
 #undef exp
 
 #endinput
-
-Float:flowNoise(const vec2 &v, Float:angle)
-{
-Float:n0, n1, n2; /* Noise contributions from the three simplex corners */
-Float:gx0, gy0, gx1, gy1, gx2, gy2; /* Gradients at simplex corners */
-Float:sin_t, cos_t; /* Sine and cosine for the gradient rotation angle */
-sin_t = sin(angle);
-cos_t = cos(angle);
-
-/* Skew the input space to determine which simplex cell we're in */
-Float:s = (x + y) * F2; /* Hairy factor for 2D */
-Float:xs = x + s;
-Float:ys = y + s;
-int i = FASTFLOOR(xs);
-int j = FASTFLOOR(ys);
-
-Float:t = (float) (i + j) * G2;
-Float:X0 = i - t; /* Unskew the cell origin back to (x,y) space */
-Float:Y0 = j - t;
-Float:x0 = x - X0; /* The x,y distances from the cell origin */
-Float:y0 = y - Y0;
-
-/* For the 2D case, the simplex shape is an equilateral triangle.
-* Determine which simplex we are in. */
-int i1, j1; /* Offsets for second (middle) corner of simplex in (i,j) coords */
-if(x0 > y0) { i1 = 1; j1 = 0; } /* lower triangle, XY order: (0,0)->(1,0)->(1,1) */
-else { i1 = 0; j1 = 1; }      /* upper triangle, YX order: (0,0)->(0,1)->(1,1) */
-
-/* A step of (1,0) in (i,j) means a step of (1 - c,- c) in (x,y), and
-* a step of (0,1) in (i,j) means a step of (- c,1 - c) in (x,y), where
-* c = (3 - sqrt(3))/ 6   */
-Float:x1 = x0 - i1 + G2; /* Offsets for middle corner in (x,y) unskewed coords */
-Float:y1 = y0 - j1 + G2;
-Float:x2 = x0 - 1.0 + 2.0 * G2; /* Offsets for last corner in (x,y) unskewed coords */
-Float:y2 = y0 - 1.0 + 2.0 * G2;
-
-/* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
-int ii = i & 0xff;
-int jj = j & 0xff;
-
-/* Calculate the contribution from the three corners */
-Float:t0 = 0.5 - x0 * x0 - y0 * y0;
-Float:t20, t40;
-if(t0 < 0.0) t40 = t20 = t0 = n0 = gx0 = gy0 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + perm[jj]], sin_t, cos_t, &gx0, &gy0);
-t20 = t0 * t0;
-t40 = t20 * t20;
-n0 = t40 * graddotp2(gx0, gy0, x0, y0);
-}
-
-Float:t1 = 0.5 - x1 * x1 - y1 * y1;
-Float:t21, t41;
-if(t1 < 0.0) t21 = t41 = t1 = n1 = gx1 = gy1 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + i1 + perm[jj + j1]], sin_t, cos_t, &gx1, &gy1);
-t21 = t1 * t1;
-t41 = t21 * t21;
-n1 = t41 * graddotp2(gx1, gy1, x1, y1);
-}
-
-Float:t2 = 0.5 - x2 * x2 - y2 * y2;
-Float:t22, t42;
-if(t2 < 0.0) t42 = t22 = t2 = n2 = gx2 = gy2 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + 1 + perm[jj + 1]], sin_t, cos_t, &gx2, &gy2);
-t22 = t2 * t2;
-t42 = t22 * t22;
-n2 = t42 * graddotp2(gx2, gy2, x2, y2);
-}
-
-/* Add contributions from each corner to get the final noise value.
-* The result is scaled to return values in the interval [- 1,1]. */
-return 40.0 * (n0 + n1 + n2);
-}
-Float:flowNoise(const vec3 &v, Float:angle)
-{
-Float:n0, n1, n2, n3; /* Noise contributions from the four simplex corners */
-Float:gx0, gy0, gz0, gx1, gy1, gz1; /* Gradients at simplex corners */
-Float:gx2, gy2, gz2, gx3, gy3, gz3;
-Float:sin_t, cos_t; /* Sine and cosine for the gradient rotation angle */
-sin_t = sin(angle);
-cos_t = cos(angle);
-
-/* Skew the input space to determine which simplex cell we're in */
-Float:s = (x + y + z)*F3; /* Very nice and simple skew factor for 3D */
-Float:xs = x + s;
-Float:ys = y + s;
-Float:zs = z + s;
-int i = FASTFLOOR(xs);
-int j = FASTFLOOR(ys);
-int k = FASTFLOOR(zs);
-
-Float:t = (float)(i + j + k)*G3;
-Float:X0 = i - t; /* Unskew the cell origin back to (x,y,z) space */
-Float:Y0 = j - t;
-Float:Z0 = k - t;
-Float:x0 = x -X0; /* The x,y,z distances from the cell origin */
-Float:y0 = y -Y0;
-Float:z0 = z -Z0;
-
-/* For the 3D case, the simplex shape is a slightly irregular tetrahedron.
-* Determine which simplex we are in. */
-int i1, j1, k1; /* Offsets for second corner of simplex in (i,j,k) coords */
-int i2, j2, k2; /* Offsets for third corner of simplex in (i,j,k) coords */
-
-/* TODO: This code would benefit from a backport from the GLSL version! */
-if(x0 >= y0) {
-if(y0 >= z0)
-{ i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* X Y Z order */
-else if(x0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 0; k2 = 1; } /* X Z Y order */
-else { i1 = 0; j1 = 0; k1 = 1; i2 = 1; j2 = 0; k2 = 1; } /* Z X Y order */
-}
-else { // x0 < y0
-if(y0 < z0) { i1 = 0; j1 = 0; k1 = 1; i2 = 0; j2 = 1; k2 = 1; } /* Z Y X order */
-else if(x0 < z0) { i1 = 0; j1 = 1; k1 = 0; i2 = 0; j2 = 1; k2 = 1; } /* Y Z X order */
-else { i1 = 0; j1 = 1; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* Y X Z order */
-}
-
-/* A step of (1,0,0) in (i,j,k) means a step of (1 - c,- c,- c) in (x,y,z),
-* a step of (0,1,0) in (i,j,k) means a step of (- c,1 - c,- c) in (x,y,z), and
-* a step of (0,0,1) in (i,j,k) means a step of (- c,- c,1 - c) in (x,y,z), where
-* c = 1 / 6.   */
-
-Float:x1 = x0 - i1 + G3; /* Offsets for second corner in (x,y,z) coords */
-Float:y1 = y0 - j1 + G3;
-Float:z1 = z0 - k1 + G3;
-Float:x2 = x0 - i2 + 2.0 * G3; /* Offsets for third corner in (x,y,z) coords */
-Float:y2 = y0 - j2 + 2.0 * G3;
-Float:z2 = z0 - k2 + 2.0 * G3;
-Float:x3 = x0 - 1.0 + 3.0 * G3; /* Offsets for last corner in (x,y,z) coords */
-Float:y3 = y0 - 1.0 + 3.0 * G3;
-Float:z3 = z0 - 1.0 + 3.0 * G3;
-
-/* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
-int ii = i & 0xff;
-int jj = j & 0xff;
-int kk = k & 0xff;
-
-/* Calculate the contribution from the four corners */
-Float:t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
-Float:t20, t40;
-if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = 0.0;
-else {
-gradrot3(perm[ii + perm[jj + perm[kk]]], sin_t, cos_t, &gx0, &gy0, &gz0);
-t20 = t0 * t0;
-t40 = t20 * t20;
-n0 = t40 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
-}
-
-Float:t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
-Float:t21, t41;
-if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = 0.0;
-else {
-gradrot3(perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]], sin_t, cos_t, &gx1, &gy1, &gz1);
-t21 = t1 * t1;
-t41 = t21 * t21;
-n1 = t41 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
-}
-
-Float:t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
-Float:t22, t42;
-if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = 0.0;
-else {
-gradrot3(perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]], sin_t, cos_t, &gx2, &gy2, &gz2);
-t22 = t2 * t2;
-t42 = t22 * t22;
-n2 = t42 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
-}
-
-Float:t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
-Float:t23, t43;
-if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = 0.0;
-else {
-gradrot3(perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]], sin_t, cos_t, &gx3, &gy3, &gz3);
-t23 = t3 * t3;
-t43 = t23 * t23;
-n3 = t43 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
-}
-
-/*  Add contributions from each corner to get the final noise value.
-* The result is scaled to return values in the range [- 1,1] */
-return 28.0 * (n0 + n1 + n2 + n3);
-}
-vec3 dFlowNoise(const vec2 &v, Float:angle)
-{
-
-Float:n0, n1, n2; /* Noise contributions from the three simplex corners */
-Float:gx0, gy0, gx1, gy1, gx2, gy2; /* Gradients at simplex corners */
-Float:sin_t, cos_t; /* Sine and cosine for the gradient rotation angle */
-sin_t = sin(angle);
-cos_t = cos(angle);
-
-/* Skew the input space to determine which simplex cell we're in */
-Float:s = (x + y) * F2; /* Hairy factor for 2D */
-Float:xs = x + s;
-Float:ys = y + s;
-int i = FASTFLOOR(xs);
-int j = FASTFLOOR(ys);
-
-Float:t = (float) (i + j) * G2;
-Float:X0 = i - t; /* Unskew the cell origin back to (x,y) space */
-Float:Y0 = j - t;
-Float:x0 = x - X0; /* The x,y distances from the cell origin */
-Float:y0 = y - Y0;
-
-/* For the 2D case, the simplex shape is an equilateral triangle.
-* Determine which simplex we are in. */
-int i1, j1; /* Offsets for second (middle) corner of simplex in (i,j) coords */
-if(x0 > y0) { i1 = 1; j1 = 0; } /* lower triangle, XY order: (0,0)->(1,0)->(1,1) */
-else { i1 = 0; j1 = 1; }      /* upper triangle, YX order: (0,0)->(0,1)->(1,1) */
-
-/* A step of (1,0) in (i,j) means a step of (1 - c,- c) in (x,y), and
-* a step of (0,1) in (i,j) means a step of (- c,1 - c) in (x,y), where
-* c = (3 - sqrt(3))/ 6   */
-Float:x1 = x0 - i1 + G2; /* Offsets for middle corner in (x,y) unskewed coords */
-Float:y1 = y0 - j1 + G2;
-Float:x2 = x0 - 1.0 + 2.0 * G2; /* Offsets for last corner in (x,y) unskewed coords */
-Float:y2 = y0 - 1.0 + 2.0 * G2;
-
-/* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
-int ii = i & 0xff;
-int jj = j & 0xff;
-
-/* Calculate the contribution from the three corners */
-Float:t0 = 0.5 - x0 * x0 - y0 * y0;
-Float:t20, t40;
-if(t0 < 0.0) t40 = t20 = t0 = n0 = gx0 = gy0 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + perm[jj]], sin_t, cos_t, &gx0, &gy0);
-t20 = t0 * t0;
-t40 = t20 * t20;
-n0 = t40 * graddotp2(gx0, gy0, x0, y0);
-}
-
-Float:t1 = 0.5 - x1 * x1 - y1 * y1;
-Float:t21, t41;
-if(t1 < 0.0) t21 = t41 = t1 = n1 = gx1 = gy1 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + i1 + perm[jj + j1]], sin_t, cos_t, &gx1, &gy1);
-t21 = t1 * t1;
-t41 = t21 * t21;
-n1 = t41 * graddotp2(gx1, gy1, x1, y1);
-}
-
-Float:t2 = 0.5 - x2 * x2 - y2 * y2;
-Float:t22, t42;
-if(t2 < 0.0) t42 = t22 = t2 = n2 = gx2 = gy2 = 0.0; /* No influence */
-else {
-gradrot2(perm[ii + 1 + perm[jj + 1]], sin_t, cos_t, &gx2, &gy2);
-t22 = t2 * t2;
-t42 = t22 * t22;
-n2 = t42 * graddotp2(gx2, gy2, x2, y2);
-}
-
-/* Add contributions from each corner to get the final noise value.
-* The result is scaled to return values in the interval [- 1,1]. */
-Float:noise = 40.0 * (n0 + n1 + n2);
-
-/* Compute derivative, if requested by supplying non - null pointers
-* for the last two arguments */
-Float:dnoise_dx, dnoise_dy;
-
-/*  A straight, unoptimised calculation would be like:
-*    * dnoise_dx = - 8.0 * t20 * t0 * x0 * graddotp2(gx0, gy0, x0, y0) + t40 * gx0;
-*    * dnoise_dy = - 8.0 * t20 * t0 * y0 * graddotp2(gx0, gy0, x0, y0) + t40 * gy0;
-*    * dnoise_dx += - 8.0 * t21 * t1 * x1 * graddotp2(gx1, gy1, x1, y1) + t41 * gx1;
-*    * dnoise_dy += - 8.0 * t21 * t1 * y1 * graddotp2(gx1, gy1, x1, y1) + t41 * gy1;
-*    * dnoise_dx += - 8.0 * t22 * t2 * x2 * graddotp2(gx2, gy2, x2, y2) + t42 * gx2;
-*    * dnoise_dy += - 8.0 * t22 * t2 * y2 * graddotp2(gx2, gy2, x2, y2) + t42 * gy2;
-*/
-Float:temp0 = t20 * t0 * graddotp2(gx0, gy0, x0, y0);
-dnoise_dx = temp0 * x0;
-dnoise_dy = temp0 * y0;
-Float:temp1 = t21 * t1 * graddotp2(gx1, gy1, x1, y1);
-dnoise_dx += temp1 * x1;
-dnoise_dy += temp1 * y1;
-Float:temp2 = t22 * t2 * graddotp2(gx2, gy2, x2, y2);
-dnoise_dx += temp2 * x2;
-dnoise_dy += temp2 * y2;
-dnoise_dx *= - 8.0;
-dnoise_dy *= - 8.0;
-/* This corrects a bug in the original implementation */
-dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2;
-dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2;
-dnoise_dx *= 40.0; /* Scale derivative to match the noise scaling */
-dnoise_dy *= 40.0;
-
-return vec3(noise, dnoise_dx, dnoise_dy);
-}
-vec4 dFlowNoise(const vec3 &v, Float:angle)
-{
-Float:n0, n1, n2, n3; /* Noise contributions from the four simplex corners */
-Float:noise;          /* Return value */
-Float:gx0, gy0, gz0, gx1, gy1, gz1; /* Gradients at simplex corners */
-Float:gx2, gy2, gz2, gx3, gy3, gz3;
-Float:sin_t, cos_t; /* Sine and cosine for the gradient rotation angle */
-sin_t = sin(angle);
-cos_t = cos(angle);
-
-/* Skew the input space to determine which simplex cell we're in */
-Float:s = (x + y + z)*F3; /* Very nice and simple skew factor for 3D */
-Float:xs = x + s;
-Float:ys = y + s;
-Float:zs = z + s;
-int i = FASTFLOOR(xs);
-int j = FASTFLOOR(ys);
-int k = FASTFLOOR(zs);
-
-Float:t = (float)(i + j + k)*G3;
-Float:X0 = i - t; /* Unskew the cell origin back to (x,y,z) space */
-Float:Y0 = j - t;
-Float:Z0 = k - t;
-Float:x0 = x -X0; /* The x,y,z distances from the cell origin */
-Float:y0 = y -Y0;
-Float:z0 = z -Z0;
-
-/* For the 3D case, the simplex shape is a slightly irregular tetrahedron.
-* Determine which simplex we are in. */
-int i1, j1, k1; /* Offsets for second corner of simplex in (i,j,k) coords */
-int i2, j2, k2; /* Offsets for third corner of simplex in (i,j,k) coords */
-
-/* TODO: This code would benefit from a backport from the GLSL version! */
-if(x0 >= y0) {
-if(y0 >= z0)
-{ i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* X Y Z order */
-else if(x0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 0; k2 = 1; } /* X Z Y order */
-else { i1 = 0; j1 = 0; k1 = 1; i2 = 1; j2 = 0; k2 = 1; } /* Z X Y order */
-}
-else { // x0 < y0
-if(y0 < z0) { i1 = 0; j1 = 0; k1 = 1; i2 = 0; j2 = 1; k2 = 1; } /* Z Y X order */
-else if(x0 < z0) { i1 = 0; j1 = 1; k1 = 0; i2 = 0; j2 = 1; k2 = 1; } /* Y Z X order */
-else { i1 = 0; j1 = 1; k1 = 0; i2 = 1; j2 = 1; k2 = 0; } /* Y X Z order */
-}
-
-/* A step of (1,0,0) in (i,j,k) means a step of (1 - c,- c,- c) in (x,y,z),
-* a step of (0,1,0) in (i,j,k) means a step of (- c,1 - c,- c) in (x,y,z), and
-* a step of (0,0,1) in (i,j,k) means a step of (- c,- c,1 - c) in (x,y,z), where
-* c = 1 / 6.   */
-
-Float:x1 = x0 - i1 + G3; /* Offsets for second corner in (x,y,z) coords */
-Float:y1 = y0 - j1 + G3;
-Float:z1 = z0 - k1 + G3;
-Float:x2 = x0 - i2 + 2.0 * G3; /* Offsets for third corner in (x,y,z) coords */
-Float:y2 = y0 - j2 + 2.0 * G3;
-Float:z2 = z0 - k2 + 2.0 * G3;
-Float:x3 = x0 - 1.0 + 3.0 * G3; /* Offsets for last corner in (x,y,z) coords */
-Float:y3 = y0 - 1.0 + 3.0 * G3;
-Float:z3 = z0 - 1.0 + 3.0 * G3;
-
-/* Wrap the integer indices at 256, to avoid indexing perm[] out of bounds */
-int ii = i & 0xff;
-int jj = j & 0xff;
-int kk = k & 0xff;
-
-/* Calculate the contribution from the four corners */
-Float:t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
-Float:t20, t40;
-if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = 0.0;
-else {
-gradrot3(perm[ii + perm[jj + perm[kk]]], sin_t, cos_t, &gx0, &gy0, &gz0);
-t20 = t0 * t0;
-t40 = t20 * t20;
-n0 = t40 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
-}
-
-Float:t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
-Float:t21, t41;
-if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = 0.0;
-else {
-gradrot3(perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]], sin_t, cos_t, &gx1, &gy1, &gz1);
-t21 = t1 * t1;
-t41 = t21 * t21;
-n1 = t41 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
-}
-
-Float:t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
-Float:t22, t42;
-if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = 0.0;
-else {
-gradrot3(perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]], sin_t, cos_t, &gx2, &gy2, &gz2);
-t22 = t2 * t2;
-t42 = t22 * t22;
-n2 = t42 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
-}
-
-Float:t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
-Float:t23, t43;
-if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = 0.0;
-else {
-gradrot3(perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]], sin_t, cos_t, &gx3, &gy3, &gz3);
-t23 = t3 * t3;
-t43 = t23 * t23;
-n3 = t43 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
-}
-
-/*  Add contributions from each corner to get the final noise value.
-* The result is scaled to return values in the range [- 1,1] */
-noise = 28.0 * (n0 + n1 + n2 + n3);
-
-/* Compute derivative, if requested by supplying non - null pointers
-* for the last three arguments */
-Float:dnoise_dx, dnoise_dy, dnoise_dz;
-
-/*  A straight, unoptimised calculation would be like:
-*     * dnoise_dx = - 8.0 * t20 * t0 * x0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gx0;
-*    * dnoise_dy = - 8.0 * t20 * t0 * y0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gy0;
-*    * dnoise_dz = - 8.0 * t20 * t0 * z0 * graddotp3(gx0, gy0, gz0, x0, y0, z0) + t40 * gz0;
-*    * dnoise_dx += - 8.0 * t21 * t1 * x1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gx1;
-*    * dnoise_dy += - 8.0 * t21 * t1 * y1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gy1;
-*    * dnoise_dz += - 8.0 * t21 * t1 * z1 * graddotp3(gx1, gy1, gz1, x1, y1, z1) + t41 * gz1;
-*    * dnoise_dx += - 8.0 * t22 * t2 * x2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gx2;
-*    * dnoise_dy += - 8.0 * t22 * t2 * y2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gy2;
-*    * dnoise_dz += - 8.0 * t22 * t2 * z2 * graddotp3(gx2, gy2, gz2, x2, y2, z2) + t42 * gz2;
-*    * dnoise_dx += - 8.0 * t23 * t3 * x3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gx3;
-*    * dnoise_dy += - 8.0 * t23 * t3 * y3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gy3;
-*    * dnoise_dz += - 8.0 * t23 * t3 * z3 * graddotp3(gx3, gy3, gz3, x3, y3, z3) + t43 * gz3;
-*/
-Float:temp0 = t20 * t0 * graddotp3(gx0, gy0, gz0, x0, y0, z0);
-dnoise_dx = temp0 * x0;
-dnoise_dy = temp0 * y0;
-dnoise_dz = temp0 * z0;
-Float:temp1 = t21 * t1 * graddotp3(gx1, gy1, gz1, x1, y1, z1);
-dnoise_dx += temp1 * x1;
-dnoise_dy += temp1 * y1;
-dnoise_dz += temp1 * z1;
-Float:temp2 = t22 * t2 * graddotp3(gx2, gy2, gz2, x2, y2, z2);
-dnoise_dx += temp2 * x2;
-dnoise_dy += temp2 * y2;
-dnoise_dz += temp2 * z2;
-Float:temp3 = t23 * t3 * graddotp3(gx3, gy3, gz3, x3, y3, z3);
-dnoise_dx += temp3 * x3;
-dnoise_dy += temp3 * y3;
-dnoise_dz += temp3 * z3;
-dnoise_dx *= - 8.0;
-dnoise_dy *= - 8.0;
-dnoise_dz *= - 8.0;
-/* This corrects a bug in the original implementation */
-dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2 + t43 * gx3;
-dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2 + t43 * gy3;
-dnoise_dz += t40 * gz0 + t41 * gz1 + t42 * gz2 + t43 * gz3;
-dnoise_dx *= 28.0; /* Scale derivative to match the noise scaling */
-dnoise_dy *= 28.0;
-dnoise_dz *= 28.0;
-
-return vec4(noise, dnoise_dx, dnoise_dy, dnoise_dz);
-}
-
-vec2 curlNoise(const vec2 &v)
-{
-const vec3 derivative = dnoise(v);
-return vec2(derivative.z, - derivative.y);
-}
-vec2 curlNoise(const vec2 &v, Float:t)
-{
-const vec3 derivative = dFlowNoise(v, t);
-return vec2(derivative.z, - derivative.y);
-}
-vec2 curlNoise(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-const vec3 derivative = dfBm(v, octaves, lacunarity, gain);
-return vec2(derivative.z, - derivative.y);
-}
-vec3 curlNoise(const vec3 &v)
-{
-const vec4 derivX = dnoise(v);
-const vec4 derivY = dnoise(v + vec3(123.456, 789.012, 345.678));
-const vec4 derivZ = dnoise(v + vec3(901.234, 567.891, 234.567));
-return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
-}
-vec3 curlNoise(const vec3 &v, Float:t)
-{
-const vec4 derivX = dFlowNoise(v, t);
-const vec4 derivY = dFlowNoise(v + vec3(123.456, 789.012, 345.678), t);
-const vec4 derivZ = dFlowNoise(v + vec3(901.234, 567.891, 234.567), t);
-return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
-}
-vec3 curlNoise(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-const vec4 derivX = dfBm(v, octaves, lacunarity, gain);
-const vec4 derivY = dfBm(v + vec3(123.456, 789.012, 345.678), octaves, lacunarity, gain);
-const vec4 derivZ = dfBm(v + vec3(901.234, 567.891, 234.567), octaves, lacunarity, gain);
-return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
-}
-
-vec2 curl(const vec2 &v, const std::function < float(const vec2&)> &potential, Float:delta)
-{
-const vec2 deltaX = vec2(delta, 0.0);
-const vec2 deltaY = vec2(0.0, delta);
-return vec2(-(potential(v + deltaY) - potential(v - deltaY)),
-(potential(v + deltaX) - potential(v - deltaX))) / (2.0 * delta);
-}
-vec3 curl(const vec3 &v, const std::function < vec3(const vec3&)> &potential, Float:delta)
-{
-const vec3 deltaX = vec3(delta, 0.0, 0.0);
-const vec3 deltaY = vec3(0.0, delta, 0.0);
-const vec3 deltaZ = vec3(0.0, 0.0, delta);
-return vec3(((potential(v + deltaY).z - potential(v - deltaY).z)
--(potential(v + deltaZ).y - potential(v - deltaZ).y)),
-((potential(v + deltaZ).x - potential(v - deltaZ).x)
--(potential(v + deltaX).z - potential(v - deltaX).z)),
-((potential(v + deltaX).y - potential(v - deltaX).y)
--(potential(v + deltaY).x - potential(v - deltaY).x))) / (2.0 * delta);
-}
-
-Float:fBm(Float:x, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-    Float:sum   = 0.0;
-    Float:freq  = 1.0;
-    Float:amp   = 0.5;
-
-    for(uint8_t i = 0; i < octaves; i ++){
-    Float:n     = noise(input * freq);
-    sum        += n * amp;
-    freq       *= lacunarity;
-    amp        *= gain;
-    }
-
-    return sum;
-}
-Float:fBm(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-    Float:sum   = 0.0;
-    Float:freq  = 1.0;
-    Float:amp   = 0.5;
-
-    for(uint8_t i = 0; i < octaves; i ++){
-    Float:n     = noise(input * freq);
-    sum        += n * amp;
-    freq       *= lacunarity;
-    amp        *= gain;
-    }
-
-    return sum;
-}
-Float:fBm(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-    Float:sum   = 0.0;
-    Float:freq  = 1.0;
-    Float:amp   = 0.5;
-
-    for(uint8_t i = 0; i < octaves; i ++){
-    Float:n     = noise(input * freq);
-    sum        += n * amp;
-    freq       *= lacunarity;
-    amp        *= gain;
-    }
-
-    return sum;
-}
-Float:fBm(const vec4 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-    Float:sum   = 0.0;
-    Float:freq  = 1.0;
-    Float:amp   = 0.5;
-
-    for(uint8_t i = 0; i < octaves; i ++){
-    Float:n     = noise(input * freq);
-    sum        += n * amp;
-    freq       *= lacunarity;
-    amp        *= gain;
-    }
-
-    return sum;
-}
-
-namespace details {
-template < typename T>
-Float:worleyfBm_t(const T &input, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-Float:sum   = 0.0;
-Float:freq  = 1.0;
-Float:amp   = 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-Float:n     = worleyNoise(input * freq);
-sum        += n * amp;
-freq       *= lacunarity;
-amp        *= gain;
-}
-
-return sum;
-}
-template < typename T>
-Float:worleyfBm_t(const T &input, Float:falloff, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-Float:sum   = 0.0;
-Float:freq  = 1.0;
-Float:amp   = 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-Float:n     = worleyNoise(input * freq, falloff);
-sum        += n * amp;
-freq       *= lacunarity;
-amp        *= gain;
-}
-
-return sum;
-}
-}
-
-Float:worleyfBm(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return worleyfBm_t(v, octaves, lacunarity, gain);
-}
-Float:worleyfBm(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return worleyfBm_t(v, octaves, lacunarity, gain);
-}
-Float:worleyfBm(const vec2 &v, Float:falloff, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return worleyfBm_t(v, falloff, octaves, lacunarity, gain);
-}
-Float:worleyfBm(const vec3 &v, Float:falloff, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return worleyfBm_t(v, falloff, octaves, lacunarity, gain);
-}
-
-vec2 dfBm(Float:x, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-vec2 sum	= vec2(0.0);
-Float:freq		= 1.0;
-Float:amp		= 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-vec2 n	= dnoise(x * freq);
-sum        += n * amp;
-freq       *= lacunarity;
-amp        *= gain;
-}
-
-return sum;
-}
-vec3 dfBm(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-vec3 sum	= vec3(0.0);
-Float:freq		= 1.0;
-Float:amp		= 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-vec3 n	= dnoise(v * freq);
-sum        += n * amp;
-freq       *= lacunarity;
-amp        *= gain;
-}
-
-return sum;
-}
-vec4 dfBm(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-vec4 sum	= vec4(0.0);
-Float:freq		= 1.0;
-Float:amp		= 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-vec4 n	= dnoise(v * freq);
-sum        += n * amp;
-freq       *= lacunarity;
-amp        *= gain;
-}
-
-return sum;
-}
-vec5 dfBm(const vec4 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-vec5 sum = { 0.0, 0.0, 0.0, 0.0, 0.0 };
-Float:freq  = 1.0;
-Float:amp   = 0.5;
-
-for(uint8_t i = 0; i < octaves; i ++){
-vec5 n = dnoise(v * freq);
-sum[0]			+= n[0]* amp;
-sum[1]			+= n[1]* amp;
-sum[2]			+= n[2]* amp;
-sum[3]			+= n[3]* amp;
-sum[4]			+= n[4]* amp;
-freq			*= lacunarity;
-amp				*= gain;
-}
-
-return sum;
-}
-
-
-
-Float:ridge(Float:h, Float:offset)
-{
-    h = offset - floatabs(h);
-    return h * h;
-}
-
-Float:ridgedMF_t(const T &input, Float:ridgeOffset, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-    Float:sum	= 0;
-    Float:freq	= 1.0;
-    Float:amp	= 0.5;
-    Float:prev	= 1.0;
-
-    for(uint8_t i = 0; i < octaves; i ++){
-        Float:n	= ridge(noise(input * freq), ridgeOffset);
-        sum		+= n * amp * prev;
-        prev	= n;
-        freq	*= lacunarity;
-        amp		*= gain;
-    }
-    return sum;
-}
-
-Float:ridgedMF(Float:x, Float:ridgeOffset, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return ridgedMF_t(x, ridgeOffset, octaves, lacunarity, gain);
-}
-Float:ridgedMF(const vec2 &v, Float:ridgeOffset, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return ridgedMF_t(v, ridgeOffset, octaves, lacunarity, gain);
-}
-Float:ridgedMF(const vec3 &v, Float:ridgeOffset, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return ridgedMF_t(v, ridgeOffset, octaves, lacunarity, gain);
-}
-Float:ridgedMF(const vec4 &v, Float:ridgeOffset, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-return ridgedMF_t(v, ridgeOffset, octaves, lacunarity, gain);
-}
-
-
-
-Float:iqfBm(const vec2 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-Float:sum	= 0.0;
-Float:amp	= 0.5;
-Float:dx	= 0.0;
-Float:dy	= 0.0;
-Float:freq	= 1.0;
-for(uint8_t i = 0; i < octaves; i ++) {
-vec3 d = dnoise(v * freq);
-dx += d.y;
-dy += d.y;
-sum += amp * d.x / (1.0 + dx * dx + dy * dy);
-freq *= lacunarity;
-amp *= gain;
-}
-
-return sum;
-}
-Float:iqfBm(const vec3 &v, uint8_t octaves, Float:lacunarity, Float:gain)
-{
-Float:sum	= 0.0;
-Float:amp	= 0.5;
-Float:dx	= 0.0;
-Float:dy	= 0.0;
-Float:dz	= 0.0;
-Float:freq	= 1.0;
-for(uint8_t i = 0; i < octaves; i ++) {
-vec4 d = dnoise(v * freq);
-dx += d.y;
-dy += d.y;
-dz += d.z;
-sum += amp * d.x / (1.0 + dx * dx + dy * dy + d.z * d.z);
-freq *= lacunarity;
-amp *= gain;
-}
-
-return sum;
-}
-
-Float:iqMatfBm(const vec2 &v, uint8_t octaves, const mat2 &mat, Float:gain)
-{
-Float:sum		= 0.0;
-Float:amp		= 1.0;
-vec2 pos		= v;
-vec2 noiseAccum	= vec2(0.0);
-for(int i = 0; i < octaves; i ++){
-vec3 n	= dnoise(pos);
-noiseAccum	+= vec2(n.y, n.z);
-sum			+= amp * n.x / (1.0 + dot(noiseAccum, noiseAccum));
-amp			*= gain;
-pos			= mat * pos;
-}
-return sum;
-}
 	
