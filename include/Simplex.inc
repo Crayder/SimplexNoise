@@ -1,19 +1,15 @@
 /*
    Simplex Noise
-
    Copyright (c) 2016, Simon Geilfus, All rights reserved.
    Code adapted from Stefan Gustavson Simplex Noise Public Domain implementation
    Curl noise adapted from Robert Bridson papers
    This code also includes variation of noise sums by Iñigo Quilez
-
    Redistribution and use in source and binary forms, with or without modification, are permitted provided that
    the following conditions are met:
-
  * Redistributions of source code must retain the above copyright notice, this list of conditions and
     the following disclaimer.
  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
     the following disclaimer in the documentation and / or other materials provided with the distribution.
-
    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
@@ -33,7 +29,6 @@
    Float:noise(const vec3 &v);
    //! Returns a 4D simplex noise
    Float:noise(const vec4 &v);
-
    //! Returns a 1D simplex ridged noise
    Float:ridgedNoise(Float:x);
    //! Returns a 2D simplex ridged noise
@@ -42,7 +37,6 @@
    Float:ridgedNoise(const vec3 &v);
    //! Returns a 4D simplex ridged noise
    Float:ridgedNoise(const vec4 &v);
-
    //! Returns a 1D simplex noise with analytical derivative.
    vec2 dnoise(Float:x);
    //! Returns a 2D simplex noise with analytical derivatives.
@@ -53,7 +47,6 @@
    typedef std::array < float,5 > vec5;
    //! Returns a 4D simplex noise with analytical derivatives
    vec5 dnoise(const vec4 &v);
-
    //! Returns a 2D simplex cellular / worley noise
    Float:worleyNoise(const vec2 &v);
    //! Returns a 3D simplex cellular / worley noise
@@ -62,17 +55,14 @@
    Float:worleyNoise(const vec2 &v, Float:falloff);
    //! Returns a 3D simplex smooth cellular / worley noise
    Float:worleyNoise(const vec3 &v, Float:falloff);
-
    //! Returns a 2D simplex noise with rotating gradients
    Float:flowNoise(const vec2 &v, Float:angle);
    //! Returns a 3D simplex noise with rotating gradients
    Float:flowNoise(const vec3 &v, Float:angle);
-
    //! Returns a 2D simplex noise with rotating gradients and analytical derivatives
    vec3 dFlowNoise(const vec2 &v, Float:angle);
    //! Returns a 3D simplex noise with rotating gradients and analytical derivatives
    vec4 dFlowNoise(const vec3 &v, Float:angle);
-
    //! Returns the curl of a 2D simplex noise
    vec2 curlNoise(const vec2 &v);
    //! Returns the curl of a 2D simplex flow noise
@@ -85,12 +75,10 @@
    vec3 curlNoise(const vec3 &v, Float:t);
    //! Returns the curl approximation of a 3D simplex noise fractal brownian motion sum
    vec3 curlNoise(const vec3 &v, octaves, Float:lacunarity, Float:gain);
-
    //! Returns the curl of a custom 2D potential using finite difference approximation
    vec2 curl(const vec2 &v, const std::function < float(const vec2&)> &potential, Float:delta = 1e - 4);
    //! Returns the curl of a custom 3D potential using finite difference approximation
    vec3 curl(const vec3 &v, const std::function < vec3(const vec3&)> &potential, Float:delta = 1e - 4);
-
    //! Returns a 1D simplex noise fractal brownian motion sum
    Float:fBm(Float:x, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 2D simplex noise fractal brownian motion sum
@@ -99,7 +87,6 @@
    Float:fBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 4D simplex noise fractal brownian motion sum
    Float:fBm(const vec4 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
-
    //! Returns a 2D simplex cellular / worley noise fractal brownian motion sum
    Float:worleyfBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 3D simplex cellular / worley noise fractal brownian motion sum
@@ -108,7 +95,6 @@
    Float:worleyfBm(const vec2 &v, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 3D simplex smooth cellular / worley noise fractal brownian motion sum
    Float:worleyfBm(const vec3 &v, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
-
    //! Returns a 1D simplex noise fractal brownian motion sum with analytical derivatives
    vec2 dfBm(Float:x, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 2D simplex noise fractal brownian motion sum with analytical derivatives
@@ -117,7 +103,6 @@
    vec4 dfBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 4D simplex noise fractal brownian motion sum with analytical derivatives
    vec5 dfBm(const vec4 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
-
    //! Returns a 1D simplex ridged multi - fractal noise sum
    Float:ridgedMF(Float:x, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 2D simplex ridged multi - fractal noise sum
@@ -126,12 +111,10 @@
    Float:ridgedMF(const vec3 &v, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns a 4D simplex ridged multi - fractal noise sum
    Float:ridgedMF(const vec4 &v, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
-
    //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez
    Float:iqfBm(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez
    Float:iqfBm(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
-
    //! Returns the 2D simplex noise fractal brownian motion sum variation by Iñigo Quilez that use a mat2 to transform each octave
    Float:iqMatfBm(const vec2 &v, octaves = 4, const mat2 &mat = mat2(1.6, - 1.2, 1.2, 1.6), Float:gain = 0.5);
  */
@@ -159,7 +142,7 @@
  * float - valued 4D noise 64 times. We want this to fit in the cache!
  */
 
-static perm[512] = {
+static stock perm[512] = {
     151, 160, 137, 91, 90, 15, 131, 13, 201, 95, 96, 53, 194, 233, 7, 225,
     140, 36, 103, 30, 69, 142, 8, 99, 37, 240, 21, 10, 23, 190, 6, 148,
     247, 120, 234, 75, 0, 26, 197, 62, 94, 252, 219, 203, 117, 35, 11, 32,
@@ -198,7 +181,7 @@ static perm[512] = {
  * Gradient tables. These could be programmed the Ken Perlin way with
  * some clever bit - twiddling, but this is more clear, and not really slower.
  */
-static Float:grad2lut[8][2] = {
+static stock Float:grad2lut[8][2] = {
     { -1.0, -1.0 }, { 1.0, 0.0 }, { -1.0, 0.0 }, { 1.0, 1.0 },
     { -1.0, 1.0 }, { 0.0, -1.0 }, { 0.0, 1.0 }, { 1.0, -1.0 }
 };
@@ -212,7 +195,7 @@ static Float:grad2lut[8][2] = {
  * to represent a small, isotropic set of directions.
  */
 
-static Float:grad3lut[16][3] = {
+static stock Float:grad3lut[16][3] = {
     { 1.0, 0.0, 1.0 }, { 0.0, 1.0, 1.0 }, // 12 cube edges
     { -1.0, 0.0, 1.0 }, { 0.0, -1.0, 1.0 },
     { 1.0, 0.0, -1.0 }, { 0.0, 1.0, -1.0 },
@@ -223,7 +206,7 @@ static Float:grad3lut[16][3] = {
     { 0.0, 1.0, -1.0 }, { 0.0, -1.0, -1.0 }
 };
 
-static Float:grad4lut[32][4] = {
+static stock Float:grad4lut[32][4] = {
     { 0.0, 1.0, 1.0, 1.0 }, { 0.0, 1.0, 1.0, -1.0 }, { 0.0, 1.0, -1.0, 1.0 }, { 0.0, 1.0, -1.0, -1.0 }, // 32 tesseract edges
     { 0.0, -1.0, 1.0, 1.0 }, { 0.0, -1.0, 1.0, -1.0 }, { 0.0, -1.0, -1.0, 1.0 }, { 0.0, -1.0, -1.0, -1.0 },
     { 1.0, 0.0, 1.0, 1.0 }, { 1.0, 0.0, 1.0, -1.0 }, { 1.0, 0.0, -1.0, 1.0 }, { 1.0, 0.0, -1.0, -1.0 },
@@ -247,7 +230,7 @@ static Float:grad4lut[32][4] = {
 /* a = sqrt(2)/ sqrt(3) = 0.816496580 */
 #define a 0.81649658
 
-static Float:grad3u[16][3] = {
+static stock Float:grad3u[16][3] = {
     { 1.0, 0.0, 1.0 }, { 0.0, 1.0, 1.0 }, // 12 cube edges
     { -1.0, 0.0, 1.0 }, { 0.0, -1.0, 1.0 },
     { 1.0, 0.0, -1.0 }, { 0.0, 1.0, -1.0 },
@@ -258,7 +241,7 @@ static Float:grad3u[16][3] = {
     { a, -a, -a }, { -a, a, -a }
 };
 
-static Float:grad3v[16][3] = {
+static stock Float:grad3v[16][3] = {
     { -a, a, a }, { -a, -a, a },
     { a, -a, a }, { a, a, a },
     { -a, -a, -a }, { a, -a, -a },
@@ -287,25 +270,25 @@ static Float:grad3v[16][3] = {
  * Float:SLnoise = (SimplexNoise1234::noise(x,y,z) + 1.0) * 0.5;
  */
 
-stock Float:grad1D(hash, Float:x) {
+static stock Float:grad1D(hash, Float:x) {
     new h = hash & 15;
     new Float:grad = 1.0 + (h & 7);   // Gradient value 1.0, 2.0, ..., 8.0
     if(h & 8) grad = -grad;          // Set a random sign for the gradient
     return grad * x;             // Multiply the gradient with the distance
 }
-stock Float:grad2D(hash, Float:x, Float:y) {
+static stock Float:grad2D(hash, Float:x, Float:y) {
     new h = hash & 7;      // Convert low 3 bits of hash code
     new Float:u = h < 4 ? x : y;  // into 8 simple gradient directions,
     new Float:v = h < 4 ? y : x;  // and compute the dot product with (x,y).
     return ((h & 1) ? -u : u) + ((h & 2) ? -2.0 * v : 2.0 * v);
 }
-stock Float:grad3D(hash, Float:x, Float:y, Float:z) {
+static stock Float:grad3D(hash, Float:x, Float:y, Float:z) {
     new h = hash & 15;     // Convert low 4 bits of hash code into 12 simple
     new Float:u = h < 8 ? x : y; // gradient directions, and compute dot product.
     new Float:v = h < 4 ? y : h == 12 || h == 14 ? x : z; // Fix repeats at h = 12 to 15
     return ((h & 1) ? -u : u) + ((h & 2) ? -v : v);
 }
-stock Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
+static stock Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
     new h = hash & 31;      // Convert low 5 bits of hash code into 32 simple
     new Float:u = h < 24 ? x : y; // gradient directions, and compute dot product.
     new Float:v = h < 16 ? y : z;
@@ -317,23 +300,23 @@ stock Float:grad4D(hash, Float:x, Float:y, Float:z, Float:t) {
  * and gradients - dot - residualvectors in 2D to 4D.
  */
 
-stock grad1(hash, &Float:gx) {
+static stock grad1(hash, &Float:gx) {
     new h = hash & 15;
     gx = 1.0 + (h & 7);   // Gradient value is one of 1.0, 2.0, ..., 8.0
     if(h & 8) gx = -gx;    // Make half of the gradients negative
 }
-stock grad2(hash, &Float:gx, &Float:gy) {
+static stock grad2(hash, &Float:gx, &Float:gy) {
     new h = hash & 7;
     gx = grad2lut[h][0];
     gy = grad2lut[h][1];
 }
-stock grad3(hash, &Float:gx, &Float:gy, &Float:gz) {
+static stock grad3(hash, &Float:gx, &Float:gy, &Float:gz) {
     new h = hash & 15;
     gx = grad3lut[h][0];
     gy = grad3lut[h][1];
     gz = grad3lut[h][2];
 }
-stock grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
+static stock grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
     new h = hash & 31;
     gx = grad4lut[h][0];
     gy = grad4lut[h][1];
@@ -345,14 +328,14 @@ stock grad4(hash, &Float:gx, &Float:gy, &Float:gz, &Float:gw) {
  * gradients - dot - residualvectors in 2D and 3D.
  */
 
-stock gradrot2(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy) {
+static stock gradrot2(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy) {
     new h = hash & 7;
     new Float:gx0 = grad2lut[h][0];
     new Float:gy0 = grad2lut[h][1];
     gx = cos_t * gx0 - sin_t * gy0;
     gy = sin_t * gx0 + cos_t * gy0;
 }
-stock gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) {
+static stock gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) {
     new h = hash & 15;
     new Float:gux = grad3u[h][0];
     new Float:guy = grad3u[h][1];
@@ -364,10 +347,10 @@ stock gradrot3(hash, Float:sin_t, Float:cos_t, &Float:gx, &Float:gy, &Float:gz) 
     gy = cos_t * guy + sin_t * gvy;
     gz = cos_t * guz + sin_t * gvz;
 }
-stock Float:graddotp2(Float:gx, Float:gy, Float:x, Float:y) {
+static stock Float:graddotp2(Float:gx, Float:gy, Float:x, Float:y) {
     return gx * x + gy * y;
 }
-stock Float:graddotp3(Float:gx, Float:gy, Float:gz, Float:x, Float:y, Float:z) {
+static stock Float:graddotp3(Float:gx, Float:gy, Float:gz, Float:x, Float:y, Float:z) {
     return gx * x + gy * y + gz * z;
 }
 /* Skewing factors for 2D simplex grid:
@@ -586,7 +569,7 @@ stock Float:noise3D(Float:x, Float:y, Float:z)
     // The result is scaled to stay just inside [- 1,1]
     return 32.0 * (n0 + n1 + n2 + n3); // TODO: The scale factor is preliminary!
 }
-static sSimplexLut[64][4] = {
+static stock sSimplexLut[64][4] = {
     {0, 1, 2, 3}, {0, 1, 3, 2}, {0, 0, 0, 0}, {0, 2, 3, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 2, 3, 0},
     {0, 2, 1, 3}, {0, 0, 0, 0}, {0, 3, 1, 2}, {0, 3, 2, 1}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 3, 2, 0},
     {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
@@ -1073,7 +1056,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    Float:gx2, gy2, gz2, gw2, gx3, gy3, gz3, gw3, gx4, gy4, gz4, gw4;
    Float:t20, t21, t22, t23, t24;
    Float:t40, t41, t42, t43, t44;
-
    // Skew the (x,y,z,w) space to determine which cell of 24 simplices we're in
    Float:s = (x + y + z + w) * F4; // Factor for 4D skewing
    Float:xs = x + s;
@@ -1084,18 +1066,15 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    int j = FASTFLOOR(ys);
    int k = FASTFLOOR(zs);
    int l = FASTFLOOR(ws);
-
    Float:t = (i + j + k + l) * G4; // Factor for 4D unskewing
    Float:X0 = i - t; // Unskew the cell origin back to (x,y,z,w) space
    Float:Y0 = j - t;
    Float:Z0 = k - t;
    Float:W0 = l - t;
-
    Float:x0 = x - X0;  // The x,y,z,w distances from the cell origin
    Float:y0 = y - Y0;
    Float:z0 = z - Z0;
    Float:w0 = w - W0;
-
    // For the 4D case, the simplex is a 4D shape I won't even try to describe.
    // To find out which of the 24 possible simplices we're in, we need to
    // determine the magnitude ordering of x0, y0, z0 and w0.
@@ -1111,11 +1090,9 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    int c5 = (y0 > w0) ? 2 : 0;
    int c6 = (z0 > w0) ? 1 : 0;
    int c = c1 | c2 | c3 | c4 | c5 | c6; // '|' is mostly faster than '+'
-
    int i1, j1, k1, l1; // The integer offsets for the second simplex corner
    int i2, j2, k2, l2; // The integer offsets for the third simplex corner
    int i3, j3, k3, l3; // The integer offsets for the fourth simplex corner
-
    // sSimplexLut[c] is a 4 - vector with the numbers 0, 1, 2 and 3 in some order.
    // Many values of c will never occur, since e.g. x > y > z > w makes x < z, y < w and x < w
    // impossible. Only the 24 indices which have non - zero entries make any sense.
@@ -1136,7 +1113,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    k3 = sSimplexLut[c][2]>= 1 ? 1 : 0;
    l3 = sSimplexLut[c][3]>= 1 ? 1 : 0;
    // The fifth corner has all coordinate offsets = 1, so no need to look that up.
-
    Float:x1 = x0 - i1 + G4; // Offsets for second corner in (x,y,z,w) coords
    Float:y1 = y0 - j1 + G4;
    Float:z1 = z0 - k1 + G4;
@@ -1153,13 +1129,11 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    Float:y4 = y0 - 1.0 + 4.0 * G4;
    Float:z4 = z0 - 1.0 + 4.0 * G4;
    Float:w4 = w0 - 1.0 + 4.0 * G4;
-
    // Wrap the integer indices at 256, to avoid indexing perm[] out of bounds
    int ii = i & 0xff;
    int jj = j & 0xff;
    int kk = k & 0xff;
    int ll = l & 0xff;
-
    // Calculate the contribution from the five corners
    Float:t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0 - w0 * w0;
    if(t0 < 0.0) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = gw0 = 0.0;
@@ -1169,7 +1143,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    grad4(perm[ii + perm[jj + perm[kk + perm[ll]]]], gx0, gy0, gz0, gw0);
    n0 = t40 * (gx0 * x0 + gy0 * y0 + gz0 * z0 + gw0 * w0);
    }
-
    Float:t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1 - w1 * w1;
    if(t1 < 0.0) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = gw1 = 0.0;
    else {
@@ -1178,7 +1151,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    grad4(perm[ii + i1 + perm[jj + j1 + perm[kk + k1 + perm[ll + l1]]]], gx1, gy1, gz1, gw1);
    n1 = t41 * (gx1 * x1 + gy1 * y1 + gz1 * z1 + gw1 * w1);
    }
-
    Float:t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2 - w2 * w2;
    if(t2 < 0.0) n2 = t2 = t22 = t42 = gx2 = gy2 = gz2 = gw2 = 0.0;
    else {
@@ -1187,7 +1159,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    grad4(perm[ii + i2 + perm[jj + j2 + perm[kk + k2 + perm[ll + l2]]]], gx2, gy2, gz2, gw2);
    n2 = t42 * (gx2 * x2 + gy2 * y2 + gz2 * z2 + gw2 * w2);
    }
-
    Float:t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3 - w3 * w3;
    if(t3 < 0.0) n3 = t3 = t23 = t43 = gx3 = gy3 = gz3 = gw3 = 0.0;
    else {
@@ -1196,7 +1167,6 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    grad4(perm[ii + i3 + perm[jj + j3 + perm[kk + k3 + perm[ll + l3]]]], gx3, gy3, gz3, gw3);
    n3 = t43 * (gx3 * x3 + gy3 * y3 + gz3 * z3 + gw3 * w3);
    }
-
    Float:t4 = 0.6 - x4 * x4 - y4 * y4 - z4 * z4 - w4 * w4;
    if(t4 < 0.0) n4 = t4 = t24 = t44 = gx4 = gy4 = gz4 = gw4 = 0.0;
    else {
@@ -1205,13 +1175,10 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    grad4(perm[ii + 1 + perm[jj + 1 + perm[kk + 1 + perm[ll + 1]]]], gx4, gy4, gz4, gw4);
    n4 = t44 * (gx4 * x4 + gy4 * y4 + gz4 * z4 + gw4 * w4);
    }
-
    // Sum up and scale the result to cover the range [- 1,1]
    noise = 27.0 * (n0 + n1 + n2 + n3 + n4); // TODO: The scale factor is preliminary!
-
    // Compute derivative, if requested by supplying non - null pointers
    // for the last four arguments
-
    //   A straight, unoptimised calculation would be like:
    //   * dnoise_dx = - 8.0 * t20 * t0 * x0 * dot(gx0, gy0, gz0, gw0, x0, y0, z0, w0) + t40 * gx0;
    //   * dnoise_dy = - 8.0 * t20 * t0 * y0 * dot(gx0, gy0, gz0, gw0, x0, y0, z0, w0) + t40 * gy0;
@@ -1267,12 +1234,10 @@ stock dnoise3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Floa
    dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2 + t43 * gy3 + t44 * gy4;
    dnoise_dz += t40 * gz0 + t41 * gz1 + t42 * gz2 + t43 * gz3 + t44 * gz4;
    dnoise_dw += t40 * gw0 + t41 * gw1 + t42 * gw2 + t43 * gw3 + t44 * gw4;
-
    dnoise_dx *= 28.0; // Scale derivative to match the noise scaling
    dnoise_dy *= 28.0;
    dnoise_dz *= 28.0;
    dnoise_dw *= 28.0;
-
    return { noise, dnoise_dx, dnoise_dy, dnoise_dz, dnoise_dw };
    }
  */
@@ -1676,7 +1641,7 @@ stock dFlowNoise2D(Float:x, Float:y, Float:angle, &Float:rx, &Float:ry, &Float:r
 
     rx = noise, ry = dnoise_dx, rz = dnoise_dy;
 }
-stock dFlowNoise(Float:x, Float:y, Float:z, Float:angle, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+stock dFlowNoise3D(Float:x, Float:y, Float:z, Float:angle, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
 {
     new Float:n0, Float:n1, Float:n2, Float:n3; /* Noise contributions from the four simplex corners */
     new Float:noise;          /* Return value */
@@ -1847,7 +1812,7 @@ stock dFlowNoise(Float:x, Float:y, Float:z, Float:angle, &Float:rx, &Float:ry, &
 stock curlNoise2D(Float:x, Float:y, &Float:rx, &Float:ry)
 {
     new Float:dx, Float:dy, Float:dz;
-    dnoise(x, y, dx, dy, dz);
+    dnoise2D(x, y, dx, dy, dz);
     rx = dz, ry = -dy;
 }
 stock curlFlowNoise2D(Float:x, Float:y, Float:t, &Float:rx, &Float:ry)
@@ -1859,7 +1824,7 @@ stock curlFlowNoise2D(Float:x, Float:y, Float:t, &Float:rx, &Float:ry)
 stock curlNoiseBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry)
 {
     new Float:dx, Float:dy, Float:dz;
-    dfBm(x, y, octaves, lacunarity, gain, dx, dy, dz);
+    dfBm2D(x, y, octaves, lacunarity, gain, dx, dy, dz);
     rx = dz, ry = -dy;
 }
 /*vec3 curlNoise(Float:x, Float:y, Float:z)
@@ -2045,7 +2010,7 @@ stock dfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx,
     new Float:freq = 1.0;
     new Float:amp = 0.5;
 
-    rx = ry = rz = rw = 0.0;
+    rx = ry = rz = 0.0;
 
     for(new i = 0; i < octaves; i++) {
         new Float:nx, Float:ny, Float:nz;
@@ -2084,7 +2049,6 @@ stock dfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, &
     vec5 sum = { 0.0, 0.0, 0.0, 0.0, 0.0 };
     Float:freq  = 1.0;
     Float:amp   = 0.5;
-
     for(new i = 0; i < octaves; i ++){
     vec5 n = dnoise(v * freq);
     sum[0]          += n[0]* amp;
@@ -2095,13 +2059,12 @@ stock dfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, &
     freq            *= lacunarity;
     amp             *= gain;
     }
-
     return sum;
    }*/
 
 
 
-stock Float:ridge(Float:h, Float:offset)
+static stock Float:ridge(Float:h, Float:offset)
 {
     h = offset - floatabs(h);
     return h * h;
@@ -2124,13 +2087,13 @@ stock Float:ridgedMF1D(Float:x, Float:ridgeOffset, octaves, Float:lacunarity, Fl
 }
 stock Float:ridgedMF2D(Float:x, Float:y, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
 {
-    Float:sum = 0;
-    Float:freq = 1.0;
-    Float:amp = 0.5;
-    Float:prev = 1.0;
+    new Float:sum = 0;
+    new Float:freq = 1.0;
+    new Float:amp = 0.5;
+    new Float:prev = 1.0;
 
     for(new i = 0; i < octaves; i++) {
-        Float:n = ridge(noise2D(x * freq, y * freq), ridgeOffset);
+        new Float:n = ridge(noise2D(x * freq, y * freq), ridgeOffset);
         sum += n * amp * prev;
         prev = n;
         freq *= lacunarity;
@@ -2224,7 +2187,6 @@ stock Float:iqfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:
     Float:posy = y;
     Float:noiseAccumY;
     Float:noiseAccumZ;
-
     for(new i = 0; i < octaves; i ++){
         new Float:nx, Float:ny, Float:nz;
         dnoise(posx, posy, nx, ny, nz);
