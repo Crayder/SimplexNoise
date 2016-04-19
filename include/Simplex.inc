@@ -1256,8 +1256,9 @@ stock Float:worleyNoise2D(Float:x, Float:y)
     for(new j = -1; j <= 1; j++) {
         for(new i = -1; i <= 1; i++) {
             new Float:bx = float(i), Float:by = float(j);
-            new Float:rx = bx - fx + (noise1D(px + bx) * 0.5 + 0.5);
-            new Float:ry = by - fy + (noise1D(py + by) * 0.5 + 0.5);
+            new Float:n = noise2D(px + bx, py + by) * 0.5 + 0.5;
+            new Float:rx = bx - fx + n;
+            new Float:ry = by - fy + n;
             new Float:d = dot(r, r);
             res = min(res, d);
         }
@@ -1277,9 +1278,10 @@ stock Float:worleyNoise3D(Float:x, Float:y, Float:z)
         for(new j = -1; j <= 1; j++) {
             for(new i = -1; i <= 1; i++) {
                 new Float:bx = i, Float:by = j, Float:bz = k;
-                new Float:rx = bx - fx + (noise1D(px + bx) * 0.5 + 0.5);
-                new Float:ry = by - fy + (noise1D(py + by) * 0.5 + 0.5);
-                new Float:rz = bz - fz + (noise1D(pz + bz) * 0.5 + 0.5);
+                new Float:n = noise3D(px + bx, py + by, pz + bz) * 0.5 + 0.5;
+                new Float:rx = bx - fx + n;
+                new Float:ry = by - fy + n;
+                new Float:rz = bz - fz + n;
                 new Float:d = dot(r, r);
                 res = min(res, d);
             }
@@ -1303,8 +1305,9 @@ stock Float:worleyNoise2D_F(Float:x, Float:y, Float:falloff)
     for(new j = -1; j <= 1; j++) {
         for(new i = -1; i <= 1; i++) {
             new Float:bx = float(i), Float:by = float(j);
-            new Float:rx = bx - fx + (noise1D(px + bx) * 0.5 + 0.5);
-            new Float:ry = by - fy + (noise1D(py + by) * 0.5 + 0.5);
+            new Float:n = noise2D(px + bx, py + by) * 0.5 + 0.5;
+            new Float:rx = bx - fx + n;
+            new Float:ry = by - fy + n;
             new Float:d = VectorSize(rx, ry, 0.0);
             res += exp(-falloff * d);
         }
@@ -1324,9 +1327,10 @@ stock Float:worleyNoise3D_F(Float:x, Float:y, Float:z, Float:falloff)
         for(new j = -1; j <= 1; j++) {
             for(new i = -1; i <= 1; i++) {
                 new Float:bx = i, Float:by = j, Float:bz = k;
-                new Float:rx = bx - fx + (noise1D(px + bx) * 0.5 + 0.5);
-                new Float:ry = by - fy + (noise1D(py + by) * 0.5 + 0.5);
-                new Float:rz = bz - fz + (noise1D(pz + bz) * 0.5 + 0.5);
+                new Float:n = noise3D(px + bx, py + by, pz + bz) * 0.5 + 0.5;
+                new Float:rx = bx - fx + n;
+                new Float:ry = by - fy + n;
+                new Float:rz = bz - fz + n;
                 new Float:d = VectorSize(rx, ry, rz);
                 res += exp(-falloff * d);
             }
