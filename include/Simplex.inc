@@ -68,13 +68,13 @@
    //! Returns the curl of a 2D simplex flow noise
    vec2 curlNoise(const vec2 &v, Float:t);
    //! Returns the curl of a 2D simplex noise fractal brownian motion sum
-   vec2 curlNoise(const vec2 &v, octaves, Float:lacunarity, Float:gain);
+   vec2 curlNoise(const vec2 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns the curl of a 3D simplex noise
    vec3 curlNoise(const vec3 &v);
    //! Returns the curl of a 3D simplex flow noise
    vec3 curlNoise(const vec3 &v, Float:t);
    //! Returns the curl approximation of a 3D simplex noise fractal brownian motion sum
-   vec3 curlNoise(const vec3 &v, octaves, Float:lacunarity, Float:gain);
+   vec3 curlNoise(const vec3 &v, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5);
    //! Returns the curl of a custom 2D potential using finite difference approximation
    vec2 curl(const vec2 &v, const std::function < float(const vec2&)> &potential, Float:delta = 1e - 4);
    //! Returns the curl of a custom 3D potential using finite difference approximation
@@ -1825,10 +1825,10 @@ stock curlFlowNoise2D(Float:x, Float:y, Float:t, &Float:rx, &Float:ry)
     dFlowNoise2D(x, y, t, dx, dy, dz);
     rx = dz, ry = -dy;
 }
-stock curlNoiseBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry)
+stock curlNoiseBm2D(Float:x, Float:y, &Float:rx, &Float:ry, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:dx, Float:dy, Float:dz;
-    dfBm2D(x, y, octaves, lacunarity, gain, dx, dy, dz);
+    dfBm2D(x, y, dx, dy, dz, octaves, lacunarity, gain);
     rx = dz, ry = -dy;
 }
 /*vec3 curlNoise(Float:x, Float:y, Float:z)
@@ -1845,7 +1845,7 @@ stock curlNoiseBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Fl
    const vec4 derivZ = dFlowNoise(v + vec3(901.234, 567.891, 234.567), t);
    return vec3(derivZ.z - derivY.w, derivX.w - derivZ.y, derivY.y - derivX.z);
    }
-   vec3 curlNoise(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+   vec3 curlNoise(Float:x, Float:y, Float:z, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
    {
    const vec4 derivX = dfBm(v, octaves, lacunarity, gain);
    const vec4 derivY = dfBm(v + vec3(123.456, 789.012, 345.678), octaves, lacunarity, gain);
@@ -1873,7 +1873,7 @@ stock curlNoiseBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Fl
    -(potential(v + deltaY).x - potential(v - deltaY).x))) / (2.0 * delta);
    }*/
 
-stock Float:fBm1D(Float:x, octaves, Float:lacunarity, Float:gain)
+stock Float:fBm1D(Float:x, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1888,7 +1888,7 @@ stock Float:fBm1D(Float:x, octaves, Float:lacunarity, Float:gain)
 
     return sum;
 }
-stock Float:fBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+stock Float:fBm2D(Float:x, Float:y, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1903,7 +1903,7 @@ stock Float:fBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
 
     return sum;
 }
-stock Float:fBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, Float:frequency = 1.0)
+stock Float:fBm3D(Float:x, Float:y, Float:z, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5, Float:frequency = 1.0)
 {
     new Float:sum = 0.0;
     new Float:freq = frequency;
@@ -1918,7 +1918,7 @@ stock Float:fBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:ga
 
     return sum;
 }
-stock Float:fBm4D(Float:x, Float:y, Float:z, Float:w, octaves, Float:lacunarity, Float:gain)
+stock Float:fBm4D(Float:x, Float:y, Float:z, Float:w, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1933,7 +1933,7 @@ stock Float:fBm4D(Float:x, Float:y, Float:z, Float:w, octaves, Float:lacunarity,
 
     return sum;
 }
-stock Float:worleyfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+stock Float:worleyfBm2D(Float:x, Float:y, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1948,7 +1948,7 @@ stock Float:worleyfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
 
     return sum;
 }
-stock Float:worleyfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+stock Float:worleyfBm3D(Float:x, Float:y, Float:z, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1963,7 +1963,7 @@ stock Float:worleyfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Fl
 
     return sum;
 }
-stock Float:worleyfBm2D_F(Float:x, Float:y, Float:falloff, octaves, Float:lacunarity, Float:gain)
+stock Float:worleyfBm2D_F(Float:x, Float:y, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1978,7 +1978,7 @@ stock Float:worleyfBm2D_F(Float:x, Float:y, Float:falloff, octaves, Float:lacuna
 
     return sum;
 }
-stock Float:worleyfBm3D_F(Float:x, Float:y, Float:z, Float:falloff, octaves, Float:lacunarity, Float:gain)
+stock Float:worleyfBm3D_F(Float:x, Float:y, Float:z, Float:falloff, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:freq = 1.0;
@@ -1993,7 +1993,7 @@ stock Float:worleyfBm3D_F(Float:x, Float:y, Float:z, Float:falloff, octaves, Flo
 
     return sum;
 }
-stock dfBm1D(Float:x, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry)
+stock dfBm1D(Float:x, octaves = 4, &Float:rx, &Float:ry, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:freq = 1.0;
     new Float:amp = 0.5;
@@ -2009,7 +2009,7 @@ stock dfBm1D(Float:x, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:r
         amp *= gain;
     }
 }
-stock dfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry, &Float:rz)
+stock dfBm2D(Float:x, Float:y, &Float:rx, &Float:ry, &Float:rz, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:freq = 1.0;
     new Float:amp = 0.5;
@@ -2028,7 +2028,7 @@ stock dfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain, &Float:rx,
         amp *= gain;
     }
 }
-stock dfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, &Float:rx, &Float:ry, &Float:rz, &Float:rw)
+stock dfBm3D(Float:x, Float:y, Float:z, &Float:rx, &Float:ry, &Float:rz, &Float:rw, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:freq = 1.0;
     new Float:amp = 0.5;
@@ -2048,7 +2048,7 @@ stock dfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain, &
         amp *= gain;
     }
 }
-/*vec5 dfBm(Float:x, Float:y, Float:z, Float:w, octaves, Float:lacunarity, Float:gain)
+/*vec5 dfBm(Float:x, Float:y, Float:z, Float:w, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
    {
     vec5 sum = { 0.0, 0.0, 0.0, 0.0, 0.0 };
     Float:freq  = 1.0;
@@ -2073,7 +2073,7 @@ static stock Float:ridge(Float:h, Float:offset)
     h = offset - floatabs(h);
     return h * h;
 }
-stock Float:ridgedMF1D(Float:x, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+stock Float:ridgedMF1D(Float:x, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0;
     new Float:freq = 1.0;
@@ -2089,7 +2089,7 @@ stock Float:ridgedMF1D(Float:x, Float:ridgeOffset, octaves, Float:lacunarity, Fl
     }
     return sum;
 }
-stock Float:ridgedMF2D(Float:x, Float:y, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+stock Float:ridgedMF2D(Float:x, Float:y, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0;
     new Float:freq = 1.0;
@@ -2105,7 +2105,7 @@ stock Float:ridgedMF2D(Float:x, Float:y, Float:ridgeOffset, octaves, Float:lacun
     }
     return sum;
 }
-stock Float:ridgedMF3D(Float:x, Float:y, Float:z, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+stock Float:ridgedMF3D(Float:x, Float:y, Float:z, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0;
     new Float:freq = 1.0;
@@ -2121,7 +2121,7 @@ stock Float:ridgedMF3D(Float:x, Float:y, Float:z, Float:ridgeOffset, octaves, Fl
     }
     return sum;
 }
-stock Float:ridgedMF4D(Float:x, Float:y, Float:z, Float:w, Float:ridgeOffset, octaves, Float:lacunarity, Float:gain)
+stock Float:ridgedMF4D(Float:x, Float:y, Float:z, Float:w, Float:ridgeOffset = 1.0, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0;
     new Float:freq = 1.0;
@@ -2137,7 +2137,7 @@ stock Float:ridgedMF4D(Float:x, Float:y, Float:z, Float:w, Float:ridgeOffset, oc
     }
     return sum;
 }
-stock Float:iqfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
+stock Float:iqfBm2D(Float:x, Float:y, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:amp = 0.5;
@@ -2159,7 +2159,7 @@ stock Float:iqfBm2D(Float:x, Float:y, octaves, Float:lacunarity, Float:gain)
 
     return sum;
 }
-stock Float:iqfBm3D(Float:x, Float:y, Float:z, octaves, Float:lacunarity, Float:gain)
+stock Float:iqfBm3D(Float:x, Float:y, Float:z, octaves = 4, Float:lacunarity = 2.0, Float:gain = 0.5)
 {
     new Float:sum = 0.0;
     new Float:amp = 0.5;
